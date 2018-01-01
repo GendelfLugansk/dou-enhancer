@@ -1,6 +1,6 @@
 {
   "name": "dou-enhancer",
-  "version": "0.0.0.1",
+  "version": "0.0.0.2",
   "description": "Chrome extension that adds WYSIWYG editor (and more!) to dou.ua",
   "main": "index.js",
   "scripts": {

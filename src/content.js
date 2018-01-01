@@ -87,9 +87,8 @@ const defaultMCEConfig = {
     }
   },
   menubar: false,
-  toolbar: 'code | undo redo | cut copy paste pastetext | styleselect | bold italic strikethrough removeformat | blockquote codesample | bullist numlist',
-  plugins: 'lists code codesample paste autolink',
-  paste_as_text: true,
+  toolbar: 'code | undo redo | cut copy paste pastetext | template | searchreplace | styleselect | bold italic strikethrough removeformat | blockquote codesample | bullist numlist',
+  plugins: 'lists code codesample paste autolink searchreplace template',
   style_formats: [
     {
       title: 'Inline',
@@ -136,9 +135,14 @@ const defaultMCEConfig = {
   },
   custom_undo_redo_levels: 10,
   content_css: chrome.runtime.getURL("css/tinymce-content.css"),
+  paste_as_text: true,
   paste_preprocess: function (plugin, args) {
     args.content += ' ';
-  }
+  },
+  templates: [
+    {title: 'Не читал, осуждаю', description: 'Не читал, осуждаю', content: 'Не читал, но осуждаю'},
+    {title: 'Читал, осуждаю', description: 'Читал, осуждаю', content: 'Читал, но всё равно осуждаю'},
+  ],
 };
 
 const mediaSizes = ['none', 'small', 'medium', 'max'];
@@ -223,121 +227,127 @@ const fn = function () {
         window.dispatchEvent(event);
       };
 
-      /**
-       * Listen for messages from content script
-       */
-      window.addEventListener("frontToBack", function (e) {
-        if (e.detail) {
-          switch (e.detail.target) {
-            case 'defaultForm':
-              switch (e.detail.evt) {
-                case 'focus':
-                  /**
-                   * Editor focused
-                   */
-                  try {
-                    window.commentsManager.defaultForm.onFocus();
-                  } catch (e) {
-                    throw new Error("Extension is broken due to some external changes" + String(e));
-                  }
-                  break;
+      if (!window.commentsManager && window.CommentsManager) {
+        window.commentsManager = new window.CommentsManager();
+      }
 
-                case 'blur':
-                  /**
-                   * Editor blurred
-                   */
-                  try {
-                    window.commentsManager.defaultForm.onBlur();
-                  } catch (e) {
-                    throw new Error("Extension is broken due to some external changes" + String(e));
-                  }
-                  break;
+      if (window.commentsManager) {
+        /**
+         * Listen for messages from content script
+         */
+        window.addEventListener("frontToBack", function (e) {
+          if (e.detail) {
+            switch (e.detail.target) {
+              case 'defaultForm':
+                switch (e.detail.evt) {
+                  case 'focus':
+                    /**
+                     * Editor focused
+                     */
+                    try {
+                      window.commentsManager.defaultForm.onFocus();
+                    } catch (e) {
+                      throw new Error("Extension is broken due to some external changes" + String(e));
+                    }
+                    break;
 
-                case 'enter':
-                  /**
-                   * Ctrl+Enter
-                   */
-                  try {
-                    window.commentsManager.defaultForm._onSubmit();
-                  } catch (e) {
-                    throw new Error("Extension is broken due to some external changes" + String(e));
-                  }
-                  break;
-              }
-              break;
+                  case 'blur':
+                    /**
+                     * Editor blurred
+                     */
+                    try {
+                      window.commentsManager.defaultForm.onBlur();
+                    } catch (e) {
+                      throw new Error("Extension is broken due to some external changes" + String(e));
+                    }
+                    break;
 
-            case 'floatForm':
-              switch (e.detail.evt) {
-                case 'focus':
-                  /**
-                   * Editor focused
-                   */
-                  try {
-                    window.commentsManager.floatForm.floatForm.onFocus();
-                  } catch (e) {
-                    throw new Error("Extension is broken due to some external changes" + String(e));
-                  }
-                  break;
+                  case 'enter':
+                    /**
+                     * Ctrl+Enter
+                     */
+                    try {
+                      window.commentsManager.defaultForm._onSubmit();
+                    } catch (e) {
+                      throw new Error("Extension is broken due to some external changes" + String(e));
+                    }
+                    break;
+                }
+                break;
 
-                case 'blur':
-                  /**
-                   * Editor blurred
-                   */
-                  try {
-                    window.commentsManager.floatForm.floatForm.onBlur();
-                  } catch (e) {
-                    throw new Error("Extension is broken due to some external changes" + String(e));
-                  }
-                  break;
+              case 'floatForm':
+                switch (e.detail.evt) {
+                  case 'focus':
+                    /**
+                     * Editor focused
+                     */
+                    try {
+                      window.commentsManager.floatForm.floatForm.onFocus();
+                    } catch (e) {
+                      throw new Error("Extension is broken due to some external changes" + String(e));
+                    }
+                    break;
 
-                case 'enter':
-                  /**
-                   * Ctrl+Enter
-                   */
-                  try {
-                    window.commentsManager.floatForm.floatForm._onSubmit();
-                  } catch (e) {
-                    throw new Error("Extension is broken due to some external changes" + String(e));
-                  }
-                  break;
-              }
-              break;
+                  case 'blur':
+                    /**
+                     * Editor blurred
+                     */
+                    try {
+                      window.commentsManager.floatForm.floatForm.onBlur();
+                    } catch (e) {
+                      throw new Error("Extension is broken due to some external changes" + String(e));
+                    }
+                    break;
+
+                  case 'enter':
+                    /**
+                     * Ctrl+Enter
+                     */
+                    try {
+                      window.commentsManager.floatForm.floatForm._onSubmit();
+                    } catch (e) {
+                      throw new Error("Extension is broken due to some external changes" + String(e));
+                    }
+                    break;
+                }
+                break;
+            }
           }
+        });
+
+        /**
+         * Hack into floatForm to detect when it's open and inform content-script
+         */
+        try {
+          window.commentsManager.floatForm.insertFormOrig = window.commentsManager.floatForm.insertForm;
+          window.commentsManager.floatForm.insertForm = function () {
+            window.commentsManager.floatForm.insertFormOrig(...arguments);
+            backToFront({
+              target: 'floatForm',
+              evt: 'insert'
+            });
+          };
+
+          window.commentsManager.floatForm.insertEditFormOrig = window.commentsManager.floatForm.insertEditForm;
+          window.commentsManager.floatForm.insertEditForm = function () {
+            window.commentsManager.floatForm.insertEditFormOrig(...arguments);
+            backToFront({
+              target: 'floatForm',
+              evt: 'insert-edit'
+            });
+          };
+
+          window.commentsManager.floatForm.closeOrig = window.commentsManager.floatForm.close;
+          window.commentsManager.floatForm.close = function () {
+            window.commentsManager.floatForm.closeOrig(...arguments);
+            backToFront({
+              target: 'floatForm',
+              evt: 'close'
+            });
+          };
+        } catch (e) {
+          throw new Error("Extension is broken due to some external changes" + String(e));
         }
-      });
-
-      /**
-       * Hack into floatForm to detect when it's open and inform content-script
-       */
-      try {
-        window.commentsManager.floatForm.insertFormOrig = window.commentsManager.floatForm.insertForm;
-        window.commentsManager.floatForm.insertForm = function () {
-          window.commentsManager.floatForm.insertFormOrig(...arguments);
-          backToFront({
-            target: 'floatForm',
-            evt: 'insert'
-          });
-        };
-
-        window.commentsManager.floatForm.insertEditFormOrig = window.commentsManager.floatForm.insertEditForm;
-        window.commentsManager.floatForm.insertEditForm = function () {
-          window.commentsManager.floatForm.insertEditFormOrig(...arguments);
-          backToFront({
-            target: 'floatForm',
-            evt: 'insert-edit'
-          });
-        };
-
-        window.commentsManager.floatForm.closeOrig = window.commentsManager.floatForm.close;
-        window.commentsManager.floatForm.close = function () {
-          window.commentsManager.floatForm.closeOrig(...arguments);
-          backToFront({
-            target: 'floatForm',
-            evt: 'close'
-          });
-        };
-      } catch (e) {
-        throw new Error("Extension is broken due to some external changes" + String(e));
       }
     };
     const scr = document.createElement('script');
@@ -355,15 +365,26 @@ const fn = function () {
      */
     let commentsMutationCallbacks = [];
     const targetNode = document.getElementById('commentsList');
-    const mutationConfig = {subtree: true, childList: true};
-    const callback = debounce(function () {
-      const args = arguments;
-      commentsMutationCallbacks.forEach(cb => {
-        cb(...args);
-      });
-    }, 100);
-    const observer = new MutationObserver(callback);
-    observer.observe(targetNode, mutationConfig);
+    if (targetNode) {
+      const mutationConfig = {subtree: true, childList: true};
+      const callback = debounce(function () {
+        const args = arguments;
+        commentsMutationCallbacks.forEach(cb => {
+          cb(...args);
+        });
+      }, 100);
+      const observer = new MutationObserver(callback);
+      observer.observe(targetNode, mutationConfig);
+    }
+
+    const focusBeforeTemplate = function (editor) {
+      editor.getContainer()
+        .querySelector('.mce-panel button .mce-i-template')
+        .parentElement
+        .addEventListener('click', function () {
+          editor.focus();
+        });
+    };
 
     /**
      * Config for first-level comment form
@@ -414,19 +435,15 @@ const fn = function () {
           }
         };
         editor.on('Change', changeHandler);
-        editor.on('keyup', function (event) {
-          if (event.which === 13 && event.ctrlKey) {
-            /**
-             * On Ctrl+Enter imitate original form's submit event
-             */
-            frontToBack({
-              target: 'defaultForm',
-              evt: 'enter'
-            });
-          } else {
-            changeHandler();
-          }
+        editor.on('keyup', changeHandler);
+        editor.shortcuts.add("ctrl+13", "Submit!", function () {
+          frontToBack({
+            target: 'defaultForm',
+            evt: 'enter'
+          });
         });
+
+        focusBeforeTemplate(editor);
       }
     });
     tinymce.init(defaultFormConfig);
@@ -457,9 +474,6 @@ const fn = function () {
           }
         });
 
-        /**
-         * On focus imitate original textarea focus event and update tinymce to fix placeholder
-         */
         editor.on('Focus', function () {
           frontToBack({
             target: 'floatForm',
@@ -470,9 +484,6 @@ const fn = function () {
           }, 10);
         });
 
-        /**
-         * On blur imitate original blur event
-         */
         editor.on('Blur', function () {
           frontToBack({
             target: 'floatForm',
@@ -496,26 +507,27 @@ const fn = function () {
           }
         };
         editor.on('Change', changeHandler);
-        editor.on('keyup', function (event) {
-          if (event.which === 13 && event.ctrlKey) {
-            /**
-             * On Ctrl+Enter imitate original form's submit event
-             */
-            frontToBack({
-              target: 'floatForm',
-              evt: 'enter'
-            });
-          } else {
-            changeHandler();
-          }
+        editor.on('keyup', changeHandler);
+        editor.shortcuts.add("ctrl+13", "Submit!", function () {
+          frontToBack({
+            target: 'floatForm',
+            evt: 'enter'
+          });
         });
 
+        focusBeforeTemplate(editor);
+
         /**
-         * Focus editor and move cursor to the end
+         * Three lines below should move cursor to the end of text (when editing comment) but unfortunately this
+         * method doesn't work for some reason. I'll left this code here, anyway. Maybe I'll find a way to fix it.
          */
         editor.focus();
-        editor.selection.select(editor.getBody(), true);
+        editor.selection.select(editor.getBody().lastChild, true);
         editor.selection.collapse(false);
+
+        /**
+         * Need to call change handler to disable button if editor is empty
+         */
         changeHandler();
       }
     });
@@ -592,7 +604,7 @@ const fn = function () {
   });
 };
 
-if (document.readyState === "complete") {
+if (["complete", "interactive"].indexOf(document.readyState) > -1) {
   fn();
 }
 else {

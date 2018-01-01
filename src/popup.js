@@ -75,7 +75,7 @@ const fn = function () {
   });
 };
 
-if (document.readyState === "complete") {
+if (["complete", "interactive"].indexOf(document.readyState) > -1) {
   fn();
 }
 else {

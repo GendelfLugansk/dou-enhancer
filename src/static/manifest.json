@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "DOU enhancer",
   "description": "Chrome extension that adds WYSIWYG editor (and more!) to dou.ua",
-  "version": "0.0.0.1",
+  "version": "0.0.0.2",
   "icons": {
     "128": "icon128.png"
   },
@@ -40,6 +40,8 @@
         "vendor/tinymce/plugins/codesample/plugin.min.js",
         "vendor/tinymce/plugins/paste/plugin.min.js",
         "vendor/tinymce/plugins/autolink/plugin.min.js",
+        "vendor/tinymce/plugins/searchreplace/plugin.min.js",
+        "vendor/tinymce/plugins/template/plugin.min.js",
         "js/content.js"
       ],
       "css": [
