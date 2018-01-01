@@ -1,0 +1,50 @@
+body {
+  font: 15px 'Pt Sans', Arial, sans-serif;
+  line-height: 22px;
+}
+
+blockquote {
+  border-left: 2px solid orange;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 23px;
+  color: #777;
+  background-color: transparent;
+  padding: 0 10px 0 15px;
+  margin: 6px 0 11px;
+}
+
+li, ol, ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  border-collapse: collapse;
+  list-style: none;
+  vertical-align: top;
+}
+
+ul {
+  padding: 0 0 8px 30px;
+
+  li {
+    margin-bottom: 6px;
+    padding: 0;
+  }
+
+  > li:before {
+    content: '\2014\a0';
+    float: left;
+    margin-left: -1.6em;
+  }
+}
+
+ol {
+  padding: 0 0 6px 30px;
+  font-size: 15px;
+
+  li {
+    list-style-type: decimal;
+    margin-bottom: 6px;
+  }
+}

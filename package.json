@@ -1,0 +1,25 @@
+{
+  "name": "dou-enhancer",
+  "version": "0.0.0.1",
+  "description": "Chrome extension that adds WYSIWYG editor (and more!) to dou.ua",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gennady Dogaev",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/preset-env": "^7.0.0-beta.36",
+    "babel-core": "^7.0.0-beta.3",
+    "del": "^3.0.0",
+    "eslint": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-eslint": "^4.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sequence": "^1.0.0",
+    "gulp-zip": "^4.1.0",
+    "tinymce": "^4.7.4"
+  }
+}
