@@ -1,5 +1,9 @@
+/* global chrome */
+
+/**
+ * Default TinyMCE config according to tags acceptable by dou
+ */
 export default {
-  selector: '#inlineForm textarea',
   menu: {
     edit: {title: 'Edit', items: 'undo redo | cut copy paste pastetext | selectall'},
     format: {
@@ -8,8 +12,9 @@ export default {
     }
   },
   menubar: false,
-  toolbar: 'undo redo | cut copy paste pastetext | styleselect | bold italic strikethrough removeformat | bullist numlist',
-  plugins: 'lists',
+  toolbar1: 'code | undo redo | cut copy paste pastetext | template | searchreplace | styleselect',
+  toolbar2: 'bold italic strikethrough removeformat | link unlink | blockquote codesample | bullist numlist',
+  plugins: 'lists code codesample paste autolink searchreplace template link',
   style_formats: [
     {
       title: 'Inline',
@@ -55,4 +60,39 @@ export default {
     strikethrough: {inline: 'del'},
   },
   custom_undo_redo_levels: 10,
+  content_css: chrome.runtime.getURL("css/tinymce-content.css"),
+  paste_as_text: true,
+  paste_preprocess: function (plugin, args) {
+    args.content += ' ';
+  },
+  codesample_languages: [
+    {text: 'None', value: 'none'},
+    {text: '1C', value: '1c'},
+    {text: 'Apache', value: 'apache'},
+    {text: 'AppleScript', value: 'applescript'},
+    {text: 'Bash', value: 'bash'},
+    {text: 'Basic', value: 'basic'},
+    {text: 'C#', value: 'csharp'},
+    {text: 'C++', value: 'cpp'},
+    {text: 'CSS', value: 'css'},
+    {text: 'Clojure', value: 'clojure'},
+    {text: 'CoffeeScript', value: 'coffeescript'},
+    {text: 'Diff', value: 'diff'},
+    {text: 'HTML/XML', value: 'xhtml'},
+    {text: 'HTTP', value: 'http'},
+    {text: 'Ini', value: 'ini'},
+    {text: 'JSON', value: 'json'},
+    {text: 'Java', value: 'java'},
+    {text: 'JavaScript', value: 'javascript'},
+    {text: 'Less', value: 'less'},
+    {text: 'PHP', value: 'php'},
+    {text: 'Python', value: 'python'},
+    {text: 'Ruby', value: 'ruby'},
+    {text: 'SCSS', value: 'scss'},
+  ],
+  templates: [
+    {title: 'Не читал, осуждаю', description: 'Не читал, осуждаю', content: 'Не читал, но осуждаю'},
+    {title: 'Читал, осуждаю', description: 'Читал, осуждаю', content: 'Читал, но всё равно осуждаю'},
+  ],
+  link_context_toolbar: true
 };

@@ -9,7 +9,9 @@ const
   del = require('del'),
   eslint = require('gulp-eslint'),
   sass = require('gulp-sass'),
-  zip = require('gulp-zip');
+  zip = require('gulp-zip'),
+  webpack = require('webpack-stream'),
+  named = require('vinyl-named');
 
 /**
  * Check js with eslint
@@ -59,13 +61,17 @@ gulp.task('scss', () =>
 gulp.task('watch-scss', () => gulp.watch(scssSrc, ['scss']));
 
 /**
- * Build js files using babel
+ * Build js files using babel. Webpack is used together with vinyl-named to do imports but keep result each entry point
+ * in separated files (content script, background script)
  */
 const jsSrc = ['src/content.js', 'src/background.js', 'src/popup.js'];
+const depsSrc = ['src/utils/**/*.js', 'src/config/**/*.js'];
 gulp.task('js', () =>
   gulp.src(jsSrc)
+    .pipe(named())
+    .pipe(webpack())
     .pipe(babel({
-      presets: [
+      "presets": [
         ["@babel/preset-env", {
           "targets": {
             "browsers": ["last 2 chrome versions"]
@@ -75,7 +81,7 @@ gulp.task('js', () =>
     }))
     .pipe(gulp.dest('dist/js'))
 );
-gulp.task('watch-js', () => gulp.watch(jsSrc, ['js']));
+gulp.task('watch-js', () => gulp.watch(jsSrc.concat(depsSrc), ['js']));
 
 /**
  * ZIP dist to upload to chrome store

@@ -13,6 +13,8 @@
 .b-typo pre.hljs-code-container {
   border: none;
   background: none;
+  padding-left: 0;
+  max-width: none;
 
   code {
     background: inherit;
