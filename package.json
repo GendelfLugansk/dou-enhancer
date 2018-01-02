@@ -1,13 +1,21 @@
 {
   "name": "dou-enhancer",
-  "version": "0.0.0.2",
+  "version": "0.0.3",
   "description": "Chrome extension that adds WYSIWYG editor (and more!) to dou.ua",
-  "main": "index.js",
+  "main": ".eslintrc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GendelfLugansk/dou-enhancer.git"
+  },
   "author": "Gennady Dogaev",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GendelfLugansk/dou-enhancer/issues"
+  },
+  "homepage": "https://github.com/GendelfLugansk/dou-enhancer#readme",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.36",
     "@babel/preset-env": "^7.0.0-beta.36",

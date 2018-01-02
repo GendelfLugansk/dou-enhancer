@@ -139,6 +139,31 @@ const defaultMCEConfig = {
   paste_preprocess: function (plugin, args) {
     args.content += ' ';
   },
+  codesample_languages: [
+    {text: 'None', value: 'none'},
+    {text: '1C', value: '1c'},
+    {text: 'Apache', value: 'apache'},
+    {text: 'AppleScript', value: 'applescript'},
+    {text: 'Bash', value: 'bash'},
+    {text: 'Basic', value: 'basic'},
+    {text: 'C#', value: 'csharp'},
+    {text: 'C++', value: 'cpp'},
+    {text: 'CSS', value: 'css'},
+    {text: 'Clojure', value: 'clojure'},
+    {text: 'CoffeeScript', value: 'coffeescript'},
+    {text: 'Diff', value: 'diff'},
+    {text: 'HTML/XML', value: 'xhtml'},
+    {text: 'HTTP', value: 'http'},
+    {text: 'Ini', value: 'ini'},
+    {text: 'JSON', value: 'json'},
+    {text: 'Java', value: 'java'},
+    {text: 'JavaScript', value: 'javascript'},
+    {text: 'Less', value: 'less'},
+    {text: 'PHP', value: 'php'},
+    {text: 'Python', value: 'python'},
+    {text: 'Ruby', value: 'ruby'},
+    {text: 'SCSS', value: 'scss'},
+  ],
   templates: [
     {title: 'Не читал, осуждаю', description: 'Не читал, осуждаю', content: 'Не читал, но осуждаю'},
     {title: 'Читал, осуждаю', description: 'Читал, осуждаю', content: 'Читал, но всё равно осуждаю'},
@@ -194,6 +219,29 @@ const addImagePreviews = function (mediaPreviewSize) {
           link.parentElement.appendChild(div);
         }
       }
+    }
+  });
+};
+
+/* global hljs */
+hljs.configure({
+  tabReplace: '  ',
+});
+const highlightCode = function () {
+  const processedMark = 'dou-enhancer-processed';
+  const codeBlocks = document.querySelectorAll('pre code');
+  codeBlocks.forEach(block => {
+    if (!block.classList.contains(processedMark)) {
+      block.classList.add(processedMark);
+      const parent = block.parentElement;
+      parent.classList.forEach(parentClass => {
+        if (parentClass.indexOf('language-') !== -1) {
+          block.classList.add(parentClass);
+          parent.classList.remove(parentClass);
+        }
+      });
+      parent.classList.add('hljs-code-container');
+      hljs.highlightBlock(block);
     }
   });
 };
@@ -579,9 +627,17 @@ const fn = function () {
      * Add image and video previews
      */
     addImagePreviews(config.mediaPreviewSize);
+    /**
+     * Highlight all code
+     */
+    highlightCode();
 
+    /**
+     * When comment list changes - update previews and code highlighting
+     */
     commentsMutationCallbacks.push(function () {
       addImagePreviews(config.mediaPreviewSize);
+      highlightCode();
     });
 
     /**

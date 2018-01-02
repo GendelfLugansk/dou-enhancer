@@ -1,6 +1,22 @@
+/**
+ * Show submit button when form is focused
+ */
 #floatForm.focused {
   .send, .list-tags {
     display: block;
+  }
+}
+
+/**
+ * Fix broken highlight.js styles
+ */
+.b-typo pre.hljs-code-container {
+  border: none;
+  background: none;
+
+  code {
+    background: inherit;
+    padding: inherit;
   }
 }
 

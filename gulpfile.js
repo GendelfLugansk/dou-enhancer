@@ -14,7 +14,7 @@ const
 /**
  * Check js with eslint
  */
-const eslintSrc = ['**/*.js', '!node_modules/**/*.js', '!dist/**/*.js'];
+const eslintSrc = ['**/*.js', '!src/static/vendor/**/*.js', '!node_modules/**/*.js', '!dist/**/*.js'];
 gulp.task('eslint', () =>
   gulp.src(eslintSrc)
     .pipe(eslint())
@@ -77,6 +77,9 @@ gulp.task('js', () =>
 );
 gulp.task('watch-js', () => gulp.watch(jsSrc, ['js']));
 
+/**
+ * ZIP dist to upload to chrome store
+ */
 gulp.task('zip', () =>
   del('dou-enhancer.zip')
     .then(() => gulp.src('dist/**/*')
