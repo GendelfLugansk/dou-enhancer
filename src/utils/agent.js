@@ -39,10 +39,12 @@ const otherSideFunc = function () {
             case 'enter': {
               const submitButton = window.$('#inlineForm input[type=submit]');
               /**
-               * Ctrl+Enter
+               * Ctrl+Enter is tricky - we need to trigger mousedown and mouseup (click doesn't work) events to send
+               * message and then blur to start j/k shortcuts
                */
               submitButton.triggerHandler('mousedown');
               submitButton.triggerHandler('mouseup');
+              window.$('#inlineForm textarea').triggerHandler('blur');
               break;
             }
           }
@@ -69,11 +71,9 @@ const otherSideFunc = function () {
                * Ctrl+Enter
                */
               const submitButton = window.$('#floatForm input[type=submit]');
-              /**
-               * Ctrl+Enter
-               */
               submitButton.triggerHandler('mousedown');
               submitButton.triggerHandler('mouseup');
+              window.$('#floatForm textarea').triggerHandler('blur');
               break;
             }
           }
