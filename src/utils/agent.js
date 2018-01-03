@@ -14,130 +14,105 @@ const otherSideFunc = function () {
     window.dispatchEvent(event);
   };
 
-  if (
-    !window.commentsManager && window.CommentsManager &&
-    (document.querySelector('#inlineForm textarea') || document.querySelector('#floatForm textarea'))
-  ) {
-    window.commentsManager = new window.CommentsManager();
-  }
+  /**
+   * Listen for messages from content script
+   */
+  window.addEventListener("frontToBack", function (e) {
+    if (e.detail) {
+      switch (e.detail.target) {
+        case 'defaultForm':
+          switch (e.detail.evt) {
+            case 'focus':
+              /**
+               * Editor focused
+               */
+              window.$('#inlineForm textarea').triggerHandler('focus');
+              break;
 
-  if (window.commentsManager) {
-    /**
-     * Listen for messages from content script
-     */
-    window.addEventListener("frontToBack", function (e) {
-      if (e.detail) {
-        switch (e.detail.target) {
-          case 'defaultForm':
-            switch (e.detail.evt) {
-              case 'focus':
-                /**
-                 * Editor focused
-                 */
-                try {
-                  window.commentsManager.defaultForm.onFocus();
-                } catch (e) {
-                  throw new Error("Extension is broken due to some external changes" + String(e));
-                }
-                break;
+            case 'blur':
+              /**
+               * Editor blurred
+               */
+              window.$('#inlineForm textarea').triggerHandler('blur');
+              break;
 
-              case 'blur':
-                /**
-                 * Editor blurred
-                 */
-                try {
-                  window.commentsManager.defaultForm.onBlur();
-                } catch (e) {
-                  throw new Error("Extension is broken due to some external changes" + String(e));
-                }
-                break;
-
-              case 'enter':
-                /**
-                 * Ctrl+Enter
-                 */
-                try {
-                  window.commentsManager.defaultForm._onSubmit();
-                } catch (e) {
-                  throw new Error("Extension is broken due to some external changes" + String(e));
-                }
-                break;
+            case 'enter': {
+              const submitButton = window.$('#inlineForm input[type=submit]');
+              /**
+               * Ctrl+Enter
+               */
+              submitButton.triggerHandler('mousedown');
+              submitButton.triggerHandler('mouseup');
+              break;
             }
-            break;
+          }
+          break;
 
-          case 'floatForm':
-            switch (e.detail.evt) {
-              case 'focus':
-                /**
-                 * Editor focused
-                 */
-                try {
-                  window.commentsManager.floatForm.floatForm.onFocus();
-                } catch (e) {
-                  throw new Error("Extension is broken due to some external changes" + String(e));
-                }
-                break;
+        case 'floatForm':
+          switch (e.detail.evt) {
+            case 'focus':
+              /**
+               * Editor focused
+               */
+              window.$('#floatForm textarea').triggerHandler('focus');
+              break;
 
-              case 'blur':
-                /**
-                 * Editor blurred
-                 */
-                try {
-                  window.commentsManager.floatForm.floatForm.onBlur();
-                } catch (e) {
-                  throw new Error("Extension is broken due to some external changes" + String(e));
-                }
-                break;
+            case 'blur':
+              /**
+               * Editor blurred
+               */
+              window.$('#floatForm textarea').triggerHandler('blur');
+              break;
 
-              case 'enter':
-                /**
-                 * Ctrl+Enter
-                 */
-                try {
-                  window.commentsManager.floatForm.floatForm._onSubmit();
-                } catch (e) {
-                  throw new Error("Extension is broken due to some external changes" + String(e));
-                }
-                break;
+            case 'enter': {
+              /**
+               * Ctrl+Enter
+               */
+              const submitButton = window.$('#floatForm input[type=submit]');
+              /**
+               * Ctrl+Enter
+               */
+              submitButton.triggerHandler('mousedown');
+              submitButton.triggerHandler('mouseup');
+              break;
             }
-            break;
-        }
+          }
+          break;
       }
-    });
-
-    /**
-     * Hack into floatForm to detect when it's open and inform content-script
-     */
-    try {
-      window.commentsManager.floatForm.insertFormOrig = window.commentsManager.floatForm.insertForm;
-      window.commentsManager.floatForm.insertForm = function () {
-        window.commentsManager.floatForm.insertFormOrig(...arguments);
-        backToFront({
-          target: 'floatForm',
-          evt: 'insert'
-        });
-      };
-
-      window.commentsManager.floatForm.insertEditFormOrig = window.commentsManager.floatForm.insertEditForm;
-      window.commentsManager.floatForm.insertEditForm = function () {
-        window.commentsManager.floatForm.insertEditFormOrig(...arguments);
-        backToFront({
-          target: 'floatForm',
-          evt: 'insert-edit'
-        });
-      };
-
-      window.commentsManager.floatForm.closeOrig = window.commentsManager.floatForm.close;
-      window.commentsManager.floatForm.close = function () {
-        window.commentsManager.floatForm.closeOrig(...arguments);
-        backToFront({
-          target: 'floatForm',
-          evt: 'close'
-        });
-      };
-    } catch (e) {
-      throw new Error("Extension is broken due to some external changes" + String(e));
     }
+  });
+
+  if (window.FloatCommentsForm) {
+    const insertFormOrig = window.FloatCommentsForm.prototype.insertForm;
+    window.FloatCommentsForm.prototype.insertForm = function () {
+      insertFormOrig.apply(this, arguments);
+      backToFront({
+        target: 'floatForm',
+        evt: 'insert'
+      });
+    };
+
+    const insertEditFormOrig = window.FloatCommentsForm.prototype.insertEditForm;
+    window.FloatCommentsForm.prototype.insertEditForm = function () {
+      insertEditFormOrig.apply(this, arguments);
+      backToFront({
+        target: 'floatForm',
+        evt: 'insert-edit'
+      });
+    };
+
+    const closeOrig = window.FloatCommentsForm.prototype.close;
+    window.FloatCommentsForm.prototype.close = function () {
+      closeOrig.apply(this, arguments);
+      backToFront({
+        target: 'floatForm',
+        evt: 'close'
+      });
+    };
+  } else if (document.querySelector('#floatForm textarea')) {
+    /* eslint-disable no-console */
+    console.log('Can\'t find FloatCommentsForm class');
+    /* eslint-enable no-console */
   }
 };
 
