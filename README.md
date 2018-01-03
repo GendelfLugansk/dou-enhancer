@@ -26,7 +26,7 @@ without watching. Other available commands:
 "Load unpacked extension". Select `dist` folder.
 
 All code that can be changed is in [src](src) directory. Files in src, such as 
-[background.js](background.js), [content.js](content.js) and [popup.js](popup.js) will be
+[background.js](background.js), [content.js](content.js) and [popup.js](popup.js), will be
 processed with webpack and babel, so ES6 syntax and imports can be used. [Utils](utils) and
 [config](config) directories contain modules which can be imported. [Static](static) directory
 contains files that should be copied into dist without processing (like manifest, images or 
