@@ -1,4 +1,4 @@
-![promo](promo_1400x560.png)
+![promo](promo-materials/promo_1400x560.png)
 
 This repo contains source code for DOU Enhancer - Chrome extension that adds WYSIWYG editor and 
 images preview to dou.ua
