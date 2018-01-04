@@ -62,9 +62,6 @@ export default {
   custom_undo_redo_levels: 10,
   content_css: chrome.runtime.getURL("css/tinymce-content.css"),
   paste_as_text: true,
-  paste_preprocess: function (plugin, args) {
-    args.content += ' ';
-  },
   codesample_languages: [
     {text: 'None', value: 'none'},
     {text: '1C', value: '1c'},

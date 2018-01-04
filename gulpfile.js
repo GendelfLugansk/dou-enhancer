@@ -65,7 +65,7 @@ gulp.task('watch-scss', () => gulp.watch(scssSrc, ['scss']));
  * in separated files (content script, background script)
  */
 const jsSrc = ['src/content.js', 'src/background.js', 'src/popup.js'];
-const depsSrc = ['src/utils/**/*.js', 'src/config/**/*.js'];
+const depsSrc = ['src/utils/**/*.js', 'src/config/**/*.js', 'node_modules/**/*.js'];
 gulp.task('js', () =>
   gulp.src(jsSrc)
     .pipe(named())

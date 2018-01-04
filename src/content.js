@@ -8,6 +8,7 @@ import defaultConfig from './config/extension-defaults';
 import addImagePreviews from './utils/add-image-previews';
 import highlightCode from './utils/highlight-code';
 import injectAgent from './utils/agent';
+import createPreprocessor from './utils/paste-preprocessor'
 
 /**
  * Main function which initializes editor
@@ -21,6 +22,8 @@ const fn = function () {
     chrome.storage.sync.set(config);
 
     injectAgent();
+
+    defaultMCEConfig.paste_preprocess = createPreprocessor();
 
     /**
      * Base url for icons and stuff like that
