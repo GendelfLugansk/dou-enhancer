@@ -1,5 +1,5 @@
 /**
- * This function will be injected in a such way that it will work in website's context
+ * This function will be injected in a such way that it will work in website's context.
  */
 const otherSideFunc = function () {
   /**
@@ -15,7 +15,16 @@ const otherSideFunc = function () {
   };
 
   /**
-   * Listen for messages from content script
+   * When submit button in floating form clicked, blur handler should be triggered in order to restart J/K shortcuts.
+   * It's important to use mouseup event, click does not work
+   */
+  window.$('#floatForm input[type=submit]').on('mouseup', () => {
+    window.$('#floatForm textarea').triggerHandler('blur');
+  });
+
+  /**
+   * Listen for messages from content script. Notice that `triggerHandler`
+   * is used everywhere - we don't need to fire events, just run handlers
    */
   window.addEventListener("frontToBack", function (e) {
     if (e.detail) {
@@ -37,14 +46,12 @@ const otherSideFunc = function () {
               break;
 
             case 'enter': {
-              const submitButton = window.$('#inlineForm input[type=submit]');
               /**
-               * Ctrl+Enter is tricky - we need to trigger mousedown and mouseup (click doesn't work) events to send
-               * message and then blur to start j/k shortcuts
+               * Ctrl+Enter, submit works only if mousedown and mouseup were triggered, not on click
                */
+              const submitButton = window.$('#inlineForm input[type=submit]');
               submitButton.triggerHandler('mousedown');
               submitButton.triggerHandler('mouseup');
-              window.$('#inlineForm textarea').triggerHandler('blur');
               break;
             }
           }
@@ -68,12 +75,12 @@ const otherSideFunc = function () {
 
             case 'enter': {
               /**
-               * Ctrl+Enter
+               * Ctrl+Enter is tricky - we need to trigger mousedown and mouseup (click doesn't work) handlers to send
+               * message
                */
               const submitButton = window.$('#floatForm input[type=submit]');
               submitButton.triggerHandler('mousedown');
               submitButton.triggerHandler('mouseup');
-              window.$('#floatForm textarea').triggerHandler('blur');
               break;
             }
           }
@@ -82,6 +89,10 @@ const otherSideFunc = function () {
     }
   });
 
+  /**
+   * Modify FloatCommentsForm's methods, to know when form is open (it's hidden by default) and initialize tinyMCE
+   * (that part is done by content script)
+   */
   if (window.FloatCommentsForm) {
     const insertFormOrig = window.FloatCommentsForm.prototype.insertForm;
     window.FloatCommentsForm.prototype.insertForm = function () {
@@ -110,6 +121,11 @@ const otherSideFunc = function () {
       });
     };
   } else if (document.querySelector('#floatForm textarea')) {
+    /**
+     * If FloatCommentsForm is not found but floating form exists, it could mean that dou's source was changed and
+     * extension would not work correctly. If this message appears on pages other than forum and articles, it's
+     * probably just false alert.
+     */
     /* eslint-disable no-console */
     console.log('Can\'t find FloatCommentsForm class');
     /* eslint-enable no-console */
