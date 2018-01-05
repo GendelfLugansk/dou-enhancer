@@ -10,6 +10,7 @@ import highlightCode from './utils/highlight-code';
 import injectAgent from './utils/agent';
 import createPreprocessor from './utils/paste-preprocessor'
 import profiler from './utils/profiler';
+import expandThreads from './utils/expand-threads';
 
 /**
  * Main function which initializes editor
@@ -258,13 +259,24 @@ const fn = function () {
      * Highlight all code
      */
     highlightCode();
+    /**
+     * Expand all threads
+     */
+    if (config.expandThreads) {
+      expandThreads();
+    }
 
     /**
      * When comment list changes - update previews and code highlighting
+     * TODO: Try to modify comments manager to know exactly when new comments arrive. Mutation observer is not the best
+     * tool for what we need
      */
     commentsMutationCallbacks.push(function () {
       addImagePreviews(config.mediaPreviewSize);
       highlightCode();
+      if (config.expandThreads) {
+        expandThreads();
+      }
     });
 
     /**
@@ -282,6 +294,9 @@ const fn = function () {
 
           addImagePreviews(config.mediaPreviewSize);
           highlightCode();
+          if (config.expandThreads) {
+            expandThreads();
+          }
         });
       }
     });

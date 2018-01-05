@@ -16,14 +16,23 @@
     Media preview size:
     <select id="mediaPreviewSize"></select>
   </p>
-  <h3>Profiler</h3>
-  <p>Do not enable profiler if you wasn't told to enable it by extension developer.</p>
+  <p>Expand threads: <input type="checkbox" id="expandThreads"></p>
+</div>
+<div id="devOptionsExpander" class="dev-options-expander"></div>
+<div id="devOptions" class="dev-options hidden">
   <p>
-    Enable: <input type="checkbox" id="profiler">
+    Enable profiler: <input type="checkbox" id="profiler">
   </p>
   <p>
-    <button type="button" id="clearLocalStorage">Clear profiling data <span></span></button>
-    <button type="button" id="dumpLocalStorage">View data</button>
+    Local storage (profiling): <span id="localStorageCounter"></span>
+  </p>
+  <p>
+    Sync storage (config): <span id="syncStorageCounter"></span>
+  </p>
+  <p>
+    <button type="button" id="dumpLocalStorage">View profiling data</button>
+    <button type="button" id="clearLocalStorage">Clear profiling data</button>
+    <button type="button" id="clearSyncStorage">Clear config</button>
   </p>
   <div class="stats" id="profilerStats"></div>
 </div>

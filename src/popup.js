@@ -8,12 +8,37 @@ import debounce from "./utils/debounce";
 const fn = function () {
   const alerts = new Alerts('#configAlerts');
 
+  const updateLSCounter = function () {
+    const localStorageCounter = document.getElementById('localStorageCounter');
+    chrome.storage.local.getBytesInUse((bytesInUse) => {
+      if (chrome.runtime.lastError) {
+        alerts.failure('Can not get used bytes: ' + chrome.runtime.lastError.message);
+        return;
+      }
+
+      localStorageCounter.innerText = `${bytesInUse} / 5242880 bytes`;
+    });
+  };
+
+  const updateSSCounter = function () {
+    const syncStorageCounter = document.getElementById('syncStorageCounter');
+    chrome.storage.sync.getBytesInUse((bytesInUse) => {
+      if (chrome.runtime.lastError) {
+        alerts.failure('Can not get used bytes: ' + chrome.runtime.lastError.message);
+        return;
+      }
+
+      syncStorageCounter.innerText = `${bytesInUse} / 102400 bytes`;
+    });
+  };
+
   const saveChanges = debounce(function (config) {
     chrome.storage.sync.set(config, () => {
       if (chrome.runtime.lastError) {
         alerts.failure('Can not store settings in synced storage: ' + chrome.runtime.lastError.message);
       } else {
         alerts.success('Saved!');
+        updateSSCounter();
       }
     });
   }, 500);
@@ -39,70 +64,63 @@ const fn = function () {
       saveChanges(config);
     };
 
+    const expandThreadsCheckbox = document.getElementById("expandThreads");
+    expandThreadsCheckbox.checked = config.expandThreads;
+    expandThreadsCheckbox.onchange = function () {
+      config.expandThreads = this.checked;
+      saveChanges(config);
+    };
+
+    const devOptsExpander = document.getElementById('devOptionsExpander');
+    devOptsExpander.onclick = function () {
+      devOptsExpander.classList.toggle('expanded');
+      const devOpts = document.getElementById('devOptions');
+      devOpts.classList.toggle('hidden')
+    };
+
     const profilerCheckbox = document.getElementById("profiler");
     profilerCheckbox.checked = config.profiler;
     profilerCheckbox.onchange = function () {
       config.profiler = this.checked;
       if (this.checked) {
-        alerts.warning('You enabled profiler. This could impact site perfomance. Disable profiler if you enabled it by mistake.', {
+        alerts.warning('You enabled profiler. This could impact site performance. Disable profiler if you enabled it by mistake.', {
           timeout: 10000
         })
       }
       saveChanges(config);
     };
 
-    const clearLocalStorageButton = document.getElementById("clearLocalStorage");
-    const storageCounter = clearLocalStorageButton.querySelector('span');
-    if (storageCounter) {
-      chrome.storage.local.getBytesInUse((bytesInUse) => {
-        if (chrome.runtime.lastError) {
-          alerts.failure('Can not get used bytes: ' + chrome.runtime.lastError.message);
-          return;
-        }
+    updateLSCounter();
+    updateSSCounter();
 
-        if (bytesInUse > 0) {
-          storageCounter.innerText = `(${bytesInUse} / 5242880 bytes)`;
-        }
-      });
-    }
+    const clearLocalStorageButton = document.getElementById("clearLocalStorage");
     clearLocalStorageButton.onclick = function () {
-      chrome.storage.local.clear(() =>{
+      chrome.storage.local.clear(() => {
         if (chrome.runtime.lastError) {
-          alerts.failure('Can not store clear: ' + chrome.runtime.lastError.message);
+          alerts.failure('Can not clear storage: ' + chrome.runtime.lastError.message);
         } else {
           alerts.success('Cleared');
-          if (storageCounter) {
-            storageCounter.innerText = '';
-          }
+          updateLSCounter();
+        }
+      });
+    };
+
+    const clearSyncStorageButton = document.getElementById("clearSyncStorage");
+    clearSyncStorageButton.onclick = function () {
+      chrome.storage.sync.clear(() => {
+        if (chrome.runtime.lastError) {
+          alerts.failure('Can not clear storage: ' + chrome.runtime.lastError.message);
+        } else {
+          alerts.success('Cleared');
+          updateSSCounter();
         }
       });
     };
 
     const dumpLocalStorageButton = document.getElementById("dumpLocalStorage");
     dumpLocalStorageButton.onclick = function () {
-      chrome.storage.local.get('profilerStats', (stats) => {
-        if (chrome.runtime.lastError) {
-          alerts.failure('Can not get data: ' + chrome.runtime.lastError.message);
-          return;
-        }
-
-        /* global hljs */
-        hljs.configure({
-          tabReplace: '  ',
-        });
-
-        const statsContainer = document.getElementById("profilerStats");
-        let pre = statsContainer.querySelector('pre');
-        if (pre) {
-          pre.remove();
-        }
-        pre = document.createElement("pre");
-        const code = document.createElement("code");
-        code.classList.add('language-json');
-        code.innerText = JSON.stringify(stats.profilerStats, null, 2);
-        pre.appendChild(code);
-        statsContainer.appendChild(pre);
-        hljs.highlightBlock(code);
+      chrome.windows.create({
+        url: 'profiling.html'
       });
     };
   });

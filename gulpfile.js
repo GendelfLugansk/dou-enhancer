@@ -64,7 +64,7 @@ gulp.task('watch-scss', () => gulp.watch(scssSrc, ['scss']));
  * Build js files using babel. Webpack is used together with vinyl-named to do imports but keep result each entry point
  * in separated files (content script, background script)
  */
-const jsSrc = ['src/content.js', 'src/background.js', 'src/popup.js'];
+const jsSrc = ['src/content.js', 'src/background.js', 'src/popup.js', 'src/profiling.js'];
 const depsSrc = ['src/utils/**/*.js', 'src/config/**/*.js', 'node_modules/**/*.js'];
 gulp.task('js', () =>
   gulp.src(jsSrc)

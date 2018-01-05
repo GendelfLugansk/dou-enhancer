@@ -43,3 +43,22 @@ h1, h2, h3, h4 {
     overflow: auto;
   }
 }
+
+.dev-options.hidden {
+  display: none;
+}
+
+.dev-options-expander {
+  color: #00b0e8;
+
+  &:before {
+    display: inline;
+    content: 'Show development options';
+    border-bottom: dashed #00b0e8;
+    cursor: pointer;
+  }
+
+  &.expanded:before {
+    content: 'Hide development options';
+  }
+}

@@ -5,10 +5,12 @@ images preview to dou.ua
 
 ## Features
 
-* WYSIWYG editor for comments
-* Code highlight in comments (only if code was inserted using WYSIWYG editor)
-* Image previews below comment's text (if comment contains link to image)
-* Embedded YT videos (if comment contains link to video)
+* Adds WYSIWYG editor for comments
+* Highlights code in comments (only if code was inserted using WYSIWYG editor)
+* Adds image previews below comment's text (if comment contains link to image)
+* Embeds YT videos (if comment contains link to video)
+* Image previews and embedded video can be switched off, if you don't like them
+* Expands all threads (can be switched off)
 
 ## Installation
 
