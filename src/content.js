@@ -9,6 +9,7 @@ import addImagePreviews from './utils/add-image-previews';
 import highlightCode from './utils/highlight-code';
 import injectAgent from './utils/agent';
 import createPreprocessor from './utils/paste-preprocessor'
+import profiler from './utils/profiler';
 
 /**
  * Main function which initializes editor
@@ -17,9 +18,13 @@ const fn = function () {
   /**
    * First we should get config
    */
-  chrome.storage.sync.get(function (config) {
-    config = extend(defaultConfig, config);
-    chrome.storage.sync.set(config);
+  chrome.storage.sync.get(function (conf) {
+    let config = extend({}, defaultConfig, conf);
+    if (config.profiler) {
+      profiler.enable();
+    } else {
+      profiler.disable();
+    }
 
     injectAgent();
 
@@ -263,23 +268,23 @@ const fn = function () {
     });
 
     /**
-     * Listen for messages from popup to update previews if user changes config
+     * Listen for storage changes
      */
-    chrome.runtime.onMessage.addListener(
-      function (request, sender) {
-        if (!sender.tab) {
-          switch (request.action) {
-            case 'update-config':
-              chrome.storage.sync.get(function (config) {
-                config = extend(defaultConfig, config);
-                addImagePreviews(config.mediaPreviewSize);
-                highlightCode();
-              });
-              break;
+    chrome.storage.onChanged.addListener((changes, area) => {
+      if (area === 'sync') {
+        chrome.storage.sync.get(function (conf) {
+          config = extend({}, defaultConfig, conf);
+          if (config.profiler) {
+            profiler.enable();
+          } else {
+            profiler.disable();
           }
-        }
+
+          addImagePreviews(config.mediaPreviewSize);
+          highlightCode();
+        });
       }
-    );
+    });
   });
 };
 

@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>DOU enhancer</title>
+  <link rel="stylesheet" href="vendor/highlightjs/styles/monokai.css">
   <link rel="stylesheet" href="css/popup.css">
 </head>
 <body>
 <h1>DOU enhancer</h1>
 <p>This extension adds WYSIWYG editor and image preview to dou.ua</p>
 <div class="config">
-  <h3>Config</h3>
+  <h2>Config</h2>
+  <div id="configAlerts"></div>
   <p>
     Media preview size:
     <select id="mediaPreviewSize"></select>
   </p>
+  <h3>Profiler</h3>
+  <p>Do not enable profiler if you wasn't told to enable it by extension developer.</p>
+  <p>
+    Enable: <input type="checkbox" id="profiler">
+  </p>
+  <p>
+    <button type="button" id="clearLocalStorage">Clear profiling data <span></span></button>
+    <button type="button" id="dumpLocalStorage">View data</button>
+  </p>
+  <div class="stats" id="profilerStats"></div>
 </div>
 <p class="promo">
   You can also check out my <a target="_blank" href="https://userstyles.org/styles/151922/compact-comment-tree-for-dou-ua-v3">custom
@@ -25,6 +37,7 @@
   Source code is available on <a target="_blank" href="https://github.com/GendelfLugansk/dou-enhancer">GitHub</a>
 </p>
 
+<script type="text/javascript" src="vendor/highlightjs/highlight.pack.js"></script>
 <script type="text/javascript" src="js/popup.js"></script>
 </body>
 </html>

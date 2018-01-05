@@ -1,4 +1,5 @@
 import mediaSizes from "../config/media-sizes";
+import profiler from '../utils/profiler';
 
 /**
  * This function processes all comments and adds image previews to comments that contain links to image file.
@@ -7,6 +8,7 @@ import mediaSizes from "../config/media-sizes";
  * @param {String} mediaPreviewSize One of sizes defined in `mediaSizes`
  */
 const addImagePreviews = function (mediaPreviewSize) {
+  profiler.start('addImagePreviews');
   mediaSizes.forEach(size => {
     document.body.classList.remove('dou-enhancer-media-size-' + size);
   });
@@ -53,6 +55,7 @@ const addImagePreviews = function (mediaPreviewSize) {
       }
     }
   });
+  profiler.stop('addImagePreviews');
 };
 
 export default addImagePreviews;

@@ -1,8 +1,15 @@
+import profiler from '../utils/profiler';
+
 /* global hljs */
 hljs.configure({
   tabReplace: '  ',
 });
+
+/**
+ * This function highlights all code on page that is wrapped in correct tags
+ */
 const highlightCode = function () {
+  profiler.start('highlightCode');
   const processedMark = 'dou-enhancer-processed';
   const codeBlocks = document.querySelectorAll('pre code');
   codeBlocks.forEach(block => {
@@ -19,6 +26,7 @@ const highlightCode = function () {
       hljs.highlightBlock(block);
     }
   });
+  profiler.stop('highlightCode');
 };
 
 export default highlightCode;
