@@ -14,7 +14,7 @@ export default {
   menubar: false,
   toolbar1: 'code | undo redo | cut copy paste pastetext | template | searchreplace | styleselect',
   toolbar2: 'bold italic strikethrough removeformat | link unlink | blockquote codesample | bullist numlist',
-  plugins: 'lists code codesample paste autolink searchreplace template link',
+  plugins: 'lists code codesample paste autolink searchreplace template link autoresize',
   style_formats: [
     {
       title: 'Inline',
@@ -91,5 +91,6 @@ export default {
     {title: 'Не читал, осуждаю', description: 'Не читал, осуждаю', content: 'Не читал, но осуждаю'},
     {title: 'Читал, осуждаю', description: 'Читал, осуждаю', content: 'Читал, но всё равно осуждаю'},
   ],
-  link_context_toolbar: true
+  link_context_toolbar: true,
+  autoresize_max_height: 700,
 };
