@@ -32,6 +32,19 @@ const fn = function () {
     });
   };
 
+  const toggleDisabledPreviewSettings = function (config) {
+    const previewSizeSelect = document.getElementById("mediaPreviewSize");
+    const mediaGridColumnsSelect = document.getElementById("mediaGridColumns");
+    if (!config.mediaPreview) {
+      previewSizeSelect.setAttribute("disabled", "disabled");
+      mediaGridColumnsSelect.setAttribute("disabled", "disabled");
+    } else {
+      previewSizeSelect.removeAttribute("disabled");
+      mediaGridColumnsSelect.removeAttribute("disabled");
+    }
+
+  };
+
   const saveChanges = debounce(function (config) {
     chrome.storage.sync.set(config, () => {
       if (chrome.runtime.lastError) {
@@ -49,6 +62,14 @@ const fn = function () {
   chrome.storage.sync.get(function (config) {
     config = extend({}, defaultConfig, config);
 
+    const mediaPreviewCheckbox = document.getElementById("mediaPreview");
+    mediaPreviewCheckbox.checked = config.mediaPreview;
+    mediaPreviewCheckbox.onchange = function () {
+      config.mediaPreview = this.checked;
+      toggleDisabledPreviewSettings(config);
+      saveChanges(config);
+    };
+
     const previewSizeSelect = document.getElementById("mediaPreviewSize");
     mediaSizes.forEach(size => {
       let option = document.createElement("option");
@@ -63,6 +84,23 @@ const fn = function () {
       config.mediaPreviewSize = e.target.value;
       saveChanges(config);
     };
+
+    const mediaGridColumnsSelect = document.getElementById("mediaGridColumns");
+    [2, 3, 4].forEach(size => {
+      let option = document.createElement("option");
+      if (String(config.mediaGridColumns) === String(size)) {
+        option.setAttribute("selected", "selected");
+      }
+      option.value = size;
+      option.textContent = size;
+      mediaGridColumnsSelect.appendChild(option);
+    });
+    mediaGridColumnsSelect.onchange = function (e) {
+      config.mediaGridColumns = Number(e.target.value);
+      saveChanges(config);
+    };
+
+    toggleDisabledPreviewSettings(config);
 
     const expandThreadsCheckbox = document.getElementById("expandThreads");
     expandThreadsCheckbox.checked = config.expandThreads;

@@ -7,8 +7,10 @@ images preview to dou.ua
 
 * Adds WYSIWYG editor for comments
 * Highlights code in comments (only if code was inserted using WYSIWYG editor)
-* Adds image previews below comment's text (if comment contains link to image)
-* Embeds YT videos (if comment contains link to video)
+* Adds image previews below comment's text (if comment contains link to image). Image
+can be opened in lightbox.
+* Adds previews for YT videos (if comment contains link to video). Video can be player in
+lightbox.
 * Image previews and embedded video can be switched off, if you don't like them
 * Expands all threads (can be switched off)
 

@@ -22,52 +22,50 @@
   }
 }
 
-.dou-enhancer-yt-preview {
-  padding: 10px 5px 5px;
-
-  iframe {
-    box-shadow: 0 0 5px 0px #999;
-    max-width: 100%;
-    width: 800px;
-    height: 450px;
-  }
-}
-
 .dou-enhancer-image-preview {
-  padding: 10px 5px 5px;
-
   img {
-    box-shadow: 0 0 5px 0px #999;
     max-width: 100%;
     height: auto;
     width: auto;
   }
 }
 
-.dou-enhancer-media-size-none {
-  .dou-enhancer-yt-preview, .dou-enhancer-image-preview {
-    display: none;
+.dou-enhancer-media-size-small {
+  .dou-enhancer-image-preview img {
+    width: 25%;
   }
 }
 
-.dou-enhancer-media-size-small {
-  .dou-enhancer-yt-preview iframe {
-    width: 240px;
-    height: 135px;
-  }
-
-  .dou-enhancer-image-preview img {
-    width: 200px;
-  }
+/**
+ * None is deprecated
+ */
+.dou-enhancer-media-size-none {
+  @extend .dou-enhancer-media-size-small;
 }
 
 .dou-enhancer-media-size-medium {
-  .dou-enhancer-yt-preview iframe {
-    width: 500px;
-    height: 281px;
-  }
-
   .dou-enhancer-image-preview img {
-    width: 500px;
+    width: 33%;
+  }
+}
+
+.dou-enhancer-media-size-big {
+  .dou-enhancer-image-preview img {
+    width: 50%;
+  }
+}
+
+.uk-grid[uk-lightbox] > div > div {
+  padding-top: 75%; /* 4:3 Aspect Ratio */
+  position: relative;
+  height: 0;
+
+  > a {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
 }

@@ -43,10 +43,37 @@ const fn = function () {
     const targetNode = document.getElementById('commentsList');
     if (targetNode) {
       const mutationConfig = {subtree: true, childList: true};
-      const callback = debounce(function () {
+      const callback = debounce(function (mutations) {
+        let edited = false, added = false;
+
+        mutations.forEach(mutation => {
+          if (mutation.target && mutation.target.id === "commentsList") {
+            mutation.addedNodes.forEach(node => {
+              if (node.classList && node.classList.contains("b-comment")) {
+                added = true;
+              }
+            });
+          }
+
+          if (
+            mutation.target &&
+            mutation.target.classList &&
+            mutation.target.classList.contains("b-typo")
+          ) {
+            mutation.addedNodes.forEach(node => {
+              if (
+                !node.classList.contains("dou-enhancer-image-preview") &&
+                !node.classList.contains("dou-enhancer-lightbox")
+              ) {
+                edited = true;
+              }
+            });
+          }
+        });
+
         const args = arguments;
         commentsMutationCallbacks.forEach(cb => {
-          cb(...args);
+          cb(added, edited, ...args);
         });
       }, 100);
       const observer = new MutationObserver(callback);
@@ -68,8 +95,10 @@ const fn = function () {
     let defaultFormConfig = extend(true, {}, defaultMCEConfig, {
       selector: '#inlineForm textarea',
       init_instance_callback(editor) {
-        commentsMutationCallbacks.push(function () {
-          editor.load();
+        commentsMutationCallbacks.push(function (added) {
+          if (added) {
+            editor.load();
+          }
         });
 
         /**
@@ -254,7 +283,7 @@ const fn = function () {
     /**
      * Add image and video previews
      */
-    addImagePreviews(config.mediaPreviewSize);
+    addImagePreviews(config);
     /**
      * Highlight all code
      */
@@ -271,11 +300,13 @@ const fn = function () {
      * TODO: Try to modify comments manager to know exactly when new comments arrive. Mutation observer is not the best
      * tool for what we need
      */
-    commentsMutationCallbacks.push(function () {
-      addImagePreviews(config.mediaPreviewSize);
-      highlightCode();
-      if (config.expandThreads) {
-        expandThreads();
+    commentsMutationCallbacks.push(function (added, edited) {
+      if (added || edited) {
+        addImagePreviews(config);
+        highlightCode();
+        if (config.expandThreads) {
+          expandThreads();
+        }
       }
     });
 
@@ -292,7 +323,7 @@ const fn = function () {
             profiler.disable();
           }
 
-          addImagePreviews(config.mediaPreviewSize);
+          addImagePreviews(config, true);
           highlightCode();
           if (config.expandThreads) {
             expandThreads();
