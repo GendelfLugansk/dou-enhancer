@@ -136,6 +136,7 @@ const addImagePreviews = function (config, force) {
           img.src = item.previewImage;
 
           let a = document.createElement("a");
+          a.classList.add(processedMark);
           a.setAttribute("href", item.src);
           a.appendChild(img);
 
