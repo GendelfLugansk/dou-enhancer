@@ -62,6 +62,7 @@ const fn = function () {
           ) {
             mutation.addedNodes.forEach(node => {
               if (
+                node.classList &&
                 !node.classList.contains("dou-enhancer-image-preview") &&
                 !node.classList.contains("dou-enhancer-lightbox")
               ) {
