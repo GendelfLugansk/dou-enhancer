@@ -69,3 +69,11 @@
     right: 0;
   }
 }
+
+img.emoji {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.1em;
+}

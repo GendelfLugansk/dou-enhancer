@@ -5,5 +5,6 @@ export default {
   mediaPreview: true,
   mediaPreviewSize: 'small',
   mediaGridColumns: 4,
-  expandThreads: true
+  expandThreads: true,
+  twemoji: true,
 };

@@ -13,8 +13,8 @@ export default {
   },
   menubar: false,
   toolbar1: 'code | undo redo | cut copy paste pastetext | template | searchreplace | styleselect',
-  toolbar2: 'bold italic strikethrough removeformat | link unlink | blockquote codesample | bullist numlist',
-  plugins: 'lists code codesample paste autolink searchreplace template link autoresize',
+  toolbar2: 'bold italic strikethrough removeformat | link unlink | blockquote codesample | bullist numlist | tinymceEmoji',
+  plugins: 'lists code codesample paste autolink searchreplace template link autoresize tinymceEmoji',
   style_formats: [
     {
       title: 'Inline',
@@ -93,4 +93,8 @@ export default {
   ],
   link_context_toolbar: true,
   autoresize_max_height: 700,
+  emoji_show_twemoji: true,
+  emoji_twemoji_size: 16,
+  emoji_twemoji_ext: '.svg',
+  emoji_twemoji_folder: 'svg',
 };

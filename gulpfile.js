@@ -32,7 +32,7 @@ gulp.task('cleanup', () => del('dist'));
 /**
  * Copy vendor files
  */
-const vendorSrc = ['node_modules/**/tinymce/**/*'];
+const vendorSrc = ['node_modules/**/tinymce/**/*', 'node_modules/tinymce-emoji/dist/**/tinymce-emoji/**/*'];
 gulp.task('vendor', () =>
   gulp.src(vendorSrc)
     .pipe(gulp.dest('dist/vendor'))

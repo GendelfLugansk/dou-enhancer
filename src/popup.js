@@ -109,6 +109,13 @@ const fn = function () {
       saveChanges(config);
     };
 
+    const twemojiCheckbox = document.getElementById("twemoji");
+    twemojiCheckbox.checked = config.twemoji;
+    twemojiCheckbox.onchange = function () {
+      config.twemoji = this.checked;
+      saveChanges(config);
+    };
+
     const devOptsExpander = document.getElementById('devOptionsExpander');
     devOptsExpander.onclick = function () {
       devOptsExpander.classList.toggle('expanded');

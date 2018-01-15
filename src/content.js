@@ -11,6 +11,7 @@ import injectAgent from './utils/agent';
 import createPreprocessor from './utils/paste-preprocessor'
 import profiler from './utils/profiler';
 import expandThreads from './utils/expand-threads';
+import twemojiSetup from './utils/twemoji';
 
 /**
  * Main function which initializes editor
@@ -295,6 +296,12 @@ const fn = function () {
     if (config.expandThreads) {
       expandThreads();
     }
+    /**
+     * Replace emojis with pictures
+     */
+    if (config.twemoji) {
+      twemojiSetup();
+    }
 
     /**
      * When comment list changes - update previews and code highlighting
@@ -307,6 +314,9 @@ const fn = function () {
         highlightCode();
         if (config.expandThreads) {
           expandThreads();
+        }
+        if (config.twemoji) {
+          twemojiSetup();
         }
       }
     });
@@ -328,6 +338,9 @@ const fn = function () {
           highlightCode();
           if (config.expandThreads) {
             expandThreads();
+          }
+          if (config.twemoji) {
+            twemojiSetup();
           }
         });
       }

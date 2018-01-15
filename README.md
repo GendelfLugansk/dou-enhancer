@@ -13,6 +13,7 @@ can be opened in lightbox.
 lightbox.
 * Image previews and embedded video can be switched off, if you don't like them
 * Expands all threads (can be switched off)
+* Replaces utf-8 emoji with [twemoji](https://github.com/twitter/twemoji)
 
 ## Installation
 
