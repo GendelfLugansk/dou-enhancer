@@ -1,6 +1,6 @@
 /* global tinymce, chrome */
 
-import defaultMCEConfig from './config/tinymce-defaults';
+import tinymceConfig from './config/tinymce';
 import debounce from './utils/debounce';
 import extend from './utils/extend';
 import frontToBack from './utils/front-to-back';
@@ -8,7 +8,6 @@ import defaultConfig from './config/extension-defaults';
 import addImagePreviews from './utils/add-image-previews';
 import highlightCode from './utils/highlight-code';
 import injectAgent from './utils/agent';
-import createPreprocessor from './utils/paste-preprocessor'
 import profiler from './utils/profiler';
 import expandThreads from './utils/expand-threads';
 import twemojiSetup from './utils/twemoji';
@@ -21,8 +20,8 @@ const fn = function () {
    * First we should get config
    */
   chrome.storage.sync.get(function (conf) {
-    let config = extend({}, defaultConfig, conf);
-    if (config.profiler) {
+    let extensionConfig = extend({}, defaultConfig, conf);
+    if (extensionConfig.profiler) {
       profiler.enable();
     } else {
       profiler.disable();
@@ -30,7 +29,7 @@ const fn = function () {
 
     injectAgent();
 
-    defaultMCEConfig.paste_preprocess = createPreprocessor();
+    let defaultMCEConfig = tinymceConfig(extensionConfig);
 
     /**
      * Base url for icons and stuff like that
@@ -285,7 +284,7 @@ const fn = function () {
     /**
      * Add image and video previews
      */
-    addImagePreviews(config);
+    addImagePreviews(extensionConfig);
     /**
      * Highlight all code
      */
@@ -293,13 +292,13 @@ const fn = function () {
     /**
      * Expand all threads
      */
-    if (config.expandThreads) {
+    if (extensionConfig.expandThreads) {
       expandThreads();
     }
     /**
      * Replace emojis with pictures
      */
-    if (config.twemoji) {
+    if (extensionConfig.twemoji) {
       twemojiSetup();
     }
 
@@ -310,12 +309,12 @@ const fn = function () {
      */
     commentsMutationCallbacks.push(function (added, edited) {
       if (added || edited) {
-        addImagePreviews(config);
+        addImagePreviews(extensionConfig);
         highlightCode();
-        if (config.expandThreads) {
+        if (extensionConfig.expandThreads) {
           expandThreads();
         }
-        if (config.twemoji) {
+        if (extensionConfig.twemoji) {
           twemojiSetup();
         }
       }
@@ -327,19 +326,19 @@ const fn = function () {
     chrome.storage.onChanged.addListener((changes, area) => {
       if (area === 'sync') {
         chrome.storage.sync.get(function (conf) {
-          config = extend({}, defaultConfig, conf);
-          if (config.profiler) {
+          extensionConfig = extend({}, defaultConfig, conf);
+          if (extensionConfig.profiler) {
             profiler.enable();
           } else {
             profiler.disable();
           }
 
-          addImagePreviews(config, true);
+          addImagePreviews(extensionConfig, true);
           highlightCode();
-          if (config.expandThreads) {
+          if (extensionConfig.expandThreads) {
             expandThreads();
           }
-          if (config.twemoji) {
+          if (extensionConfig.twemoji) {
             twemojiSetup();
           }
         });
