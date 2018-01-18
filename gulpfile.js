@@ -53,7 +53,7 @@ gulp.task('watch-static', () => gulp.watch(staticSrc, ['static']));
 /**
  * Build scss files
  */
-const scssSrc = ['src/style/content.scss', 'src/style/popup.scss', 'src/style/tinymce-content.scss'];
+const scssSrc = ['src/style/content.scss', 'src/style/popup.scss', 'src/style/options.scss', 'src/style/tinymce-content.scss'];
 gulp.task('scss', () =>
   gulp.src(scssSrc)
     .pipe(sass())
@@ -65,7 +65,7 @@ gulp.task('watch-scss', () => gulp.watch(scssSrc, ['scss']));
  * Build js files using babel. Webpack is used together with vinyl-named to do imports but keep result each entry point
  * in separated files (content script, background script)
  */
-const jsSrc = ['src/content.js', 'src/background.js', 'src/popup.js', 'src/profiling.js'];
+const jsSrc = ['src/content.js', 'src/background.js', 'src/popup.js', 'src/options.js', 'src/profiling.js'];
 const depsSrc = ['src/utils/**/*.js', 'src/config/**/*.js', 'node_modules/**/*.js'];
 gulp.task('js', () =>
   gulp.src(jsSrc)

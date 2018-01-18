@@ -89,10 +89,7 @@ export default function (extensionConfig) {
       {text: 'Ruby', value: 'ruby'},
       {text: 'SCSS', value: 'scss'},
     ],
-    templates: [
-      {title: 'Не читал, осуждаю', description: 'Не читал, осуждаю', content: 'Не читал, но осуждаю'},
-      {title: 'Читал, осуждаю', description: 'Читал, осуждаю', content: 'Читал, но всё равно осуждаю'},
-    ],
+    templates: extensionConfig.templates,
     link_context_toolbar: true,
     autoresize_max_height: 700,
     emoji_show_twemoji: !!extensionConfig.twemoji,

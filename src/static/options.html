@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DOU enhancer</title>
-  <link rel="stylesheet" href="vendor/uikit/css/uikit.popup.min.css">
+  <title>DOU enhancer - Config</title>
+  <link rel="stylesheet" href="vendor/uikit/css/uikit.min.css">
   <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/popup.css">
+  <link rel="stylesheet" href="css/options.css">
 </head>
 <body>
 <div class="uk-section uk-section-default uk-section-xsmall">
   <div class="uk-container">
-    <h1 class="uk-heading-primary uk-text-center">DOU enhancer</h1>
-    <p>This extension adds WYSIWYG editor and image preview to dou.ua</p>
+    <h2 class="uk-heading-primary uk-text-center">DOU enhancer</h2>
+    <p class="uk-text-center">This extension adds WYSIWYG editor and image preview to dou.ua</p>
   </div>
 </div>
 <div class="uk-section uk-section-default uk-section-xsmall">
@@ -56,10 +56,6 @@
         <input type="checkbox" class="uk-checkbox" id="twemoji">
       </div>
 
-      <div class="uk-width-1-1\@s">
-        <a target="_blank" href="/options.html">All options</a>
-      </div>
-
     </form>
 
     <p id="devOptionsExpander" class="dev-options-expander expanded"></p>
@@ -73,31 +69,37 @@
         <input type="checkbox" class="uk-checkbox" id="profiler">
       </div>
 
-      <div class="uk-width-1-2@s">
+      <div class="uk-width-1-4@s">
         Local storage (profiling): <span id="localStorageCounter"></span>
       </div>
 
-      <div class="uk-width-1-2@s">
+      <div class="uk-width-1-4@s">
         Sync storage (config): <span id="syncStorageCounter"></span>
       </div>
 
       <div class="uk-width-1-1@s">
-        <button type="button" id="dumpLocalStorage" class="uk-button uk-button-primary uk-button-small">View profiling
+        <button type="button" id="dumpLocalStorage" class="uk-button uk-button-primary">View profiling
           data
         </button>
-        <button type="button" id="clearLocalStorage" class="uk-button uk-button-danger uk-button-small">Clear profiling
+        <button type="button" id="clearLocalStorage" class="uk-button uk-button-danger">Clear profiling
           data
         </button>
-        <button type="button" id="clearSyncStorage" class="uk-button uk-button-danger uk-button-small">Clear config
+        <button type="button" id="clearSyncStorage" class="uk-button uk-button-danger">Clear config
         </button>
       </div>
 
     </form>
+
+    <h3 class="uk-text-center">Templates</h3>
+
+    <div id="templatesContainer" class="uk-grid-small uk-grid-match uk-child-width-1-3@s" uk-grid>
+
+    </div>
   </div>
 </div>
 
 <div class="uk-section uk-section-default uk-section-xsmall">
-  <div class="uk-container">
+  <div class="uk-container uk-text-center">
     <p>You can also check out my <a target="_blank"
                                     href="https://userstyles.org/styles/151922/compact-comment-tree-for-dou-ua-v3">custom
       style for comments</a>.
@@ -119,6 +121,6 @@
 </div>
 
 <script type="text/javascript" src="vendor/uikit/js/uikit.min.js"></script>
-<script type="text/javascript" src="js/popup.js"></script>
+<script type="text/javascript" src="js/options.js"></script>
 </body>
 </html>
