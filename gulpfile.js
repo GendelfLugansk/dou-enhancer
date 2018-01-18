@@ -32,7 +32,8 @@ gulp.task('cleanup', () => del('dist'));
 /**
  * Copy vendor files
  */
-const vendorSrc = ['node_modules/**/tinymce/**/*', 'node_modules/tinymce-emoji/dist/**/tinymce-emoji/**/*'];
+const vendorSrc = ['node_modules/**/tinymce/**/*', 'node_modules/tinymce-emoji/dist/**/tinymce-emoji/**/*',
+  'node_modules/**/font-awesome/css/**/*', 'node_modules/**/font-awesome/fonts/**/*'];
 gulp.task('vendor', () =>
   gulp.src(vendorSrc)
     .pipe(gulp.dest('dist/vendor'))

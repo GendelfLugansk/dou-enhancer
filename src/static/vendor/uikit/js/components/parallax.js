@@ -1,4 +1,4 @@
-/*! UIkit 3.0.0-beta.35 | http://www.getuikit.com | (c) 2014 - 2017 YOOtheme | MIT License */
+/*! UIkit 3.0.0-beta.37 | http://www.getuikit.com | (c) 2014 - 2017 YOOtheme | MIT License */
 
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -6,15 +6,14 @@
 	(global.UIkitParallax = factory());
 }(this, (function () { 'use strict';
 
-function plugin(UIkit) {
+function plugin$2(UIkit) {
 
-    if (plugin.installed) {
+    if (plugin$2.installed) {
         return;
     }
 
     var mixin = UIkit.mixin;
     var util = UIkit.util;
-    var clamp = util.clamp;
     var css = util.css;
     var Dimensions = util.Dimensions;
     var each = util.each;
@@ -22,9 +21,7 @@ function plugin(UIkit) {
     var includes = util.includes;
     var isNumber = util.isNumber;
     var isUndefined = util.isUndefined;
-    var scrolledOver = util.scrolledOver;
     var toFloat = util.toFloat;
-    var query = util.query;
     var win = util.win;
 
     var props = ['x', 'y', 'bgx', 'bgy', 'rotate', 'scale', 'color', 'backgroundColor', 'borderColor', 'opacity', 'blur', 'hue', 'grayscale', 'invert', 'saturate', 'sepia', 'fopacity'];
@@ -337,6 +334,52 @@ function plugin(UIkit) {
 
     };
 
+    function parseColor(el, color) {
+        return css(css(el, 'color', color), 'color').split(/[(),]/g).slice(1, -1).concat(1).slice(0, 4).map(function (n) { return toFloat(n); });
+    }
+
+    function getStep(steps, percent) {
+        var count = steps.length - 1,
+            index = Math.min(Math.floor(count * percent), count - 1),
+            step = steps.slice(index, index + 2);
+
+        step.push(percent === 1 ? 1 : percent % (1 / count) * count);
+
+        return step;
+    }
+
+    function getValue(steps, percent) {
+        var ref = getStep(steps, percent);
+        var start = ref[0];
+        var end = ref[1];
+        var p = ref[2];
+        return (isNumber(start)
+            ? start + Math.abs(start - end) * p * (start < end ? 1 : -1)
+            : +end
+        ).toFixed(2);
+    }
+
+}
+
+if (!false && typeof window !== 'undefined' && window.UIkit) {
+    window.UIkit.use(plugin$2);
+}
+
+function plugin(UIkit) {
+
+    if (plugin.installed) {
+        return;
+    }
+
+    UIkit.use(plugin$2);
+
+    var mixin = UIkit.mixin;
+    var util = UIkit.util;
+    var clamp = util.clamp;
+    var css = util.css;
+    var scrolledOver = util.scrolledOver;
+    var query = util.query;
+
     UIkit.component('parallax', {
 
         mixins: [mixin.parallax],
@@ -407,31 +450,6 @@ function plugin(UIkit) {
 
     function ease(percent, easing) {
         return clamp(percent * (1 - (easing - easing * percent)));
-    }
-
-    function parseColor(el, color) {
-        return css(css(el, 'color', color), 'color').split(/[(),]/g).slice(1, -1).concat(1).slice(0, 4).map(function (n) { return toFloat(n); });
-    }
-
-    function getStep(steps, percent) {
-        var count = steps.length - 1,
-            index = Math.min(Math.floor(count * percent), count - 1),
-            step = steps.slice(index, index + 2);
-
-        step.push(percent === 1 ? 1 : percent % (1 / count) * count);
-
-        return step;
-    }
-
-    function getValue(steps, percent) {
-        var ref = getStep(steps, percent);
-        var start = ref[0];
-        var end = ref[1];
-        var p = ref[2];
-        return (isNumber(start)
-            ? start + Math.abs(start - end) * p * (start < end ? 1 : -1)
-            : +end
-        ).toFixed(2);
     }
 
 }

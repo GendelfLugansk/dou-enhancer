@@ -1,4 +1,4 @@
-/*! UIkit 3.0.0-beta.35 | http://www.getuikit.com | (c) 2014 - 2017 YOOtheme | MIT License */
+/*! UIkit 3.0.0-beta.37 | http://www.getuikit.com | (c) 2014 - 2017 YOOtheme | MIT License */
 
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -63,7 +63,7 @@ function plugin(UIkit) {
 
             var marginBottom = toFloat(css(this.$el, 'marginBottom'));
             Transition.start(
-                css(this.$el, {opacity: 0, marginTop: -1 * this.$el.offsetHeight, marginBottom: 0}),
+                css(this.$el, {opacity: 0, marginTop: -this.$el.offsetHeight, marginBottom: 0}),
                 {opacity: 1, marginTop: 0, marginBottom: marginBottom}
             ).then(function () {
                 if (this$1.timeout) {
@@ -118,7 +118,7 @@ function plugin(UIkit) {
                 } else {
                     Transition.start(this.$el, {
                         opacity: 0,
-                        marginTop: -1 * this.$el.offsetHeight,
+                        marginTop: -this.$el.offsetHeight,
                         marginBottom: 0
                     }).then(removeFn);
                 }

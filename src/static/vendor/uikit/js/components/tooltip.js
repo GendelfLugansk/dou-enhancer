@@ -1,4 +1,4 @@
-/*! UIkit 3.0.0-beta.35 | http://www.getuikit.com | (c) 2014 - 2017 YOOtheme | MIT License */
+/*! UIkit 3.0.0-beta.37 | http://www.getuikit.com | (c) 2014 - 2017 YOOtheme | MIT License */
 
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -20,6 +20,7 @@ function plugin(UIkit) {
     var attr = util.attr;
     var doc = util.doc;
     var flipPosition = util.flipPosition;
+    var hasAttr = util.hasAttr;
     var includes = util.includes;
     var isTouch = util.isTouch;
     var isVisible = util.isVisible;
@@ -37,7 +38,7 @@ function plugin(UIkit) {
 
         attrs: true,
 
-        mixins: [mixin.togglable, mixin.position],
+        mixins: [mixin.container, mixin.togglable, mixin.position],
 
         props: {
             delay: Number,
@@ -54,12 +55,14 @@ function plugin(UIkit) {
             clsPos: 'uk-tooltip'
         },
 
-        connected: function connected() {
-            attr(this.$el, {title: null, 'aria-expanded': false});
+        beforeConnect: function beforeConnect() {
+            this._hasTitle = hasAttr(this.$el, 'title');
+            attr(this.$el, {title: '', 'aria-expanded': false});
         },
 
         disconnected: function disconnected() {
             this.hide();
+            attr(this.$el, {title: this._hasTitle ? this.title : null, 'aria-expanded': null});
         },
 
         methods: {
@@ -79,7 +82,7 @@ function plugin(UIkit) {
 
                 clearTimeout(this.showTimer);
 
-                this.tooltip = append(UIkit.container, ("<div class=\"" + (this.clsPos) + "\" aria-hidden><div class=\"" + (this.clsPos) + "-inner\">" + (this.title) + "</div></div>"));
+                this.tooltip = append(this.container, ("<div class=\"" + (this.clsPos) + "\" aria-hidden><div class=\"" + (this.clsPos) + "-inner\">" + (this.title) + "</div></div>"));
 
                 attr(this.$el, 'aria-expanded', true);
 

@@ -23,6 +23,7 @@ Message.prototype.render = function (container) {
   }
 
   const el = document.createElement("div");
+  el.setAttribute("uk-alert", "");
   el.classList.add('message');
   el.classList.add(this.class);
   el.innerText = this.message;
@@ -74,15 +75,15 @@ Alerts.prototype.message = function (messageClass, message, messageConfig) {
 };
 
 Alerts.prototype.success = function (message, messageConfig) {
-  return this.message('success', message, messageConfig);
+  return this.message('uk-alert-success', message, messageConfig);
 };
 
 Alerts.prototype.failure = function (message, messageConfig) {
-  return this.message('failure', message, extend(true, {timeout: 5000}, messageConfig));
+  return this.message('uk-alert-danger', message, extend(true, {timeout: 5000}, messageConfig));
 };
 
 Alerts.prototype.warning = function (message, messageConfig) {
-  return this.message('warning', message, extend(true, {timeout: 5000}, messageConfig));
+  return this.message('uk-alert-warning', message, extend(true, {timeout: 5000}, messageConfig));
 };
 
 export default Alerts;

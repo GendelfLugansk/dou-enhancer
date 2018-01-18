@@ -120,8 +120,10 @@ const fn = function () {
     devOptsExpander.onclick = function () {
       devOptsExpander.classList.toggle('expanded');
       const devOpts = document.getElementById('devOptions');
-      devOpts.classList.toggle('hidden')
+      const display = devOptsExpander.classList.contains('expanded') ? 'block' : 'none';
+      devOpts.querySelectorAll('div').forEach(item => { item.style.display = display; });
     };
+    devOptsExpander.onclick();
 
     const profilerCheckbox = document.getElementById("profiler");
     profilerCheckbox.checked = config.profiler;

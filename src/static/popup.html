@@ -3,62 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <title>DOU enhancer</title>
-  <link rel="stylesheet" href="vendor/highlightjs/styles/monokai.css">
+  <link rel="stylesheet" href="vendor/uikit/css/uikit.popup.min.css">
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/popup.css">
 </head>
 <body>
-<h1>DOU enhancer</h1>
-<p>This extension adds WYSIWYG editor and image preview to dou.ua</p>
-<div class="config">
-  <h2>Config</h2>
-  <div id="configAlerts"></div>
-  <p>Some options require page reload to take effect</p>
-  <p>
-    Insert preview for images/videos: <input type="checkbox" id="mediaPreview">
-  </p>
-  <p>
-    Single image/video preview width:
-    <select id="mediaPreviewSize"></select>
-  </p>
-  <p>
-    Number of columns in image grid:
-    <select id="mediaGridColumns"></select>
-  </p>
-  <p>Expand threads: <input type="checkbox" id="expandThreads"></p>
-  <p>
-    Replace utf-8 emoji with images: <input type="checkbox" id="twemoji">
-  </p>
+<div class="uk-section uk-section-default uk-section-xsmall">
+  <div class="uk-container">
+    <h2 class="uk-heading-primary uk-text-center">DOU enhancer</h2>
+    <p>This extension adds WYSIWYG editor and image preview to dou.ua</p>
+  </div>
 </div>
-<div id="devOptionsExpander" class="dev-options-expander"></div>
-<div id="devOptions" class="dev-options hidden">
-  <p>
-    Enable profiler: <input type="checkbox" id="profiler">
-  </p>
-  <p>
-    Local storage (profiling): <span id="localStorageCounter"></span>
-  </p>
-  <p>
-    Sync storage (config): <span id="syncStorageCounter"></span>
-  </p>
-  <p>
-    <button type="button" id="dumpLocalStorage">View profiling data</button>
-    <button type="button" id="clearLocalStorage">Clear profiling data</button>
-    <button type="button" id="clearSyncStorage">Clear config</button>
-  </p>
-  <div class="stats" id="profilerStats"></div>
-</div>
-<p class="promo">
-  You can also check out my <a target="_blank" href="https://userstyles.org/styles/151922/compact-comment-tree-for-dou-ua-v3">custom
-  style for comments</a>.
-  You will need Stylish extension to use it.
-</p>
-<p class="credits">
-  Brought to you by <a target="_blank" href="https://dou.ua/users/gennady-dogaev/">Gennady Dogaev</a>.<br>
-  Source code is available on <a target="_blank" href="https://github.com/GendelfLugansk/dou-enhancer">GitHub</a>.<br>
-  Emoji by <a target="_blank" href="https://github.com/twitter/twemoji">twemoji</a>
-</p>
+<div class="uk-section uk-section-default uk-section-xsmall">
+  <div class="uk-container">
+    <h4 class="uk-heading-primary uk-text-center"><i class="fa fa-cogs" aria-hidden="true"></i> Config</h4>
+    <div id="configAlerts"></div>
+    <p>Some options require page reload to take effect</p>
+    <form class="uk-grid-small" uk-grid onsubmit="return false;">
 
-<script type="text/javascript" src="vendor/highlightjs/highlight.pack.js"></script>
+      <div class="uk-width-1-2@s">
+        <label class="uk-form-label" for="mediaPreview">Insert preview for media</label>
+      </div>
+      <div class="uk-width-1-2@s">
+        <input type="checkbox" class="uk-checkbox" id="mediaPreview">
+      </div>
+
+      <div class="uk-width-1-2@s">
+        <label class="uk-form-label" for="mediaPreviewSize">Single image/video preview width</label>
+      </div>
+      <div class="uk-width-1-2@s">
+        <select class="uk-select uk-form-width-small" id="mediaPreviewSize"></select>
+      </div>
+
+      <div class="uk-width-1-2@s">
+        <label class="uk-form-label" for="mediaGridColumns">Number of columns in image grid</label>
+      </div>
+      <div class="uk-width-1-2@s">
+        <select class="uk-select uk-form-width-small" id="mediaGridColumns"></select>
+      </div>
+
+      <div class="uk-width-1-2@s">
+        <label class="uk-form-label" for="expandThreads">Expand threads</label>
+      </div>
+      <div class="uk-width-1-2@s">
+        <input type="checkbox" class="uk-checkbox" id="expandThreads">
+      </div>
+
+      <div class="uk-width-1-2@s">
+        <label class="uk-form-label" for="twemoji">Replace utf-8 emoji with images</label>
+      </div>
+      <div class="uk-width-1-2@s">
+        <input type="checkbox" class="uk-checkbox" id="twemoji">
+      </div>
+
+    </form>
+
+    <p id="devOptionsExpander" class="dev-options-expander expanded"></p>
+
+    <form id="devOptions" class="uk-grid-small" uk-grid onsubmit="return false;">
+
+      <div class="uk-width-1-2@s">
+        <label class="uk-form-label" for="profiler">Enable profiler</label>
+      </div>
+      <div class="uk-width-1-2@s">
+        <input type="checkbox" class="uk-checkbox" id="profiler">
+      </div>
+
+      <div class="uk-width-1-2@s">
+        Local storage (profiling): <span id="localStorageCounter"></span>
+      </div>
+
+      <div class="uk-width-1-2@s">
+        Sync storage (config): <span id="syncStorageCounter"></span>
+      </div>
+
+      <div class="uk-width-1-1@s">
+        <button type="button" id="dumpLocalStorage" class="uk-button uk-button-primary uk-button-small">View profiling
+          data
+        </button>
+        <button type="button" id="clearLocalStorage" class="uk-button uk-button-danger uk-button-small">Clear profiling
+          data
+        </button>
+        <button type="button" id="clearSyncStorage" class="uk-button uk-button-danger uk-button-small">Clear config
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<div class="uk-section uk-section-default uk-section-xsmall">
+  <div class="uk-container">
+    <p>You can also check out my <a target="_blank"
+                                    href="https://userstyles.org/styles/151922/compact-comment-tree-for-dou-ua-v3">custom
+      style for comments</a>.
+      You will need <a target="_blank"
+                       href="https://chrome.google.com/webstore/detail/stylish-custom-themes-for/fjnbnpbmkenffdnngjfgmeleoegfcffe">Stylish</a>
+      extension to use it.</p>
+  </div>
+</div>
+
+<div class="uk-section uk-section-default uk-section-xsmall">
+  <div class="uk-container uk-text-center">
+    <p>Brought to you by <a target="_blank"
+                            href="https://dou.ua/users/gennady-dogaev/">Gennady
+      Dogaev</a>.<br>
+      Source code is available on <a target="_blank"
+                                     href="https://github.com/GendelfLugansk/dou-enhancer">GitHub</a>.<br>
+      Emoji by <a target="_blank" href="https://github.com/twitter/twemoji">twemoji</a></p>
+  </div>
+</div>
+
+<script type="text/javascript" src="vendor/uikit/js/uikit.min.js"></script>
 <script type="text/javascript" src="js/popup.js"></script>
 </body>
 </html>
