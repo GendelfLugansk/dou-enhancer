@@ -138,6 +138,11 @@ const addImagePreviews = function (config, force) {
           let a = document.createElement("a");
           a.classList.add(processedMark);
           a.setAttribute("href", item.src);
+
+          if (item.isImg) {
+            a.setAttribute("data-type", "image");
+          }
+
           a.appendChild(img);
 
           let div = document.createElement("div");
