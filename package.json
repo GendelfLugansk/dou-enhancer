@@ -32,7 +32,7 @@
     "gulp-zip": "^4.1.0",
     "sanitize-html": "^1.17.0",
     "striptags": "^3.1.1",
-    "tinymce": "^4.7.4",
+    "tinymce": "^4.9.7",
     "tinymce-emoji": "GendelfLugansk/tinymce-emoji#twemoji",
     "twemoji": "^2.5.0",
     "vinyl-named": "^1.1.0",
