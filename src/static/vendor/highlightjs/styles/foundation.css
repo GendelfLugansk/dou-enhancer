@@ -6,83 +6,83 @@ Version: 1.0
 Date: 2013-04-02
 */
 
-.hljs, .b-typo pre.hljs-code-container code.hljs {
+.b-typo pre.hljs-code-container code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
   background: #eee; color: black;
 }
 
-.hljs-link,
-.hljs-emphasis,
-.hljs-attribute,
-.hljs-addition {
+.b-typo pre.hljs-code-container code.hljs .hljs-link,
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis,
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute,
+.b-typo pre.hljs-code-container code.hljs .hljs-addition {
   color: #070;
 }
 
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-strong,
-.hljs-string,
-.hljs-deletion {
+.b-typo pre.hljs-code-container code.hljs .hljs-strong,
+.b-typo pre.hljs-code-container code.hljs .hljs-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion {
   color: #d14;
 }
 
-.hljs-strong {
+.b-typo pre.hljs-code-container code.hljs .hljs-strong {
   font-weight: bold;
 }
 
-.hljs-quote,
-.hljs-comment {
+.b-typo pre.hljs-code-container code.hljs .hljs-quote,
+.b-typo pre.hljs-code-container code.hljs .hljs-comment {
   color: #998;
   font-style: italic;
 }
 
-.hljs-section,
-.hljs-title {
+.b-typo pre.hljs-code-container code.hljs .hljs-section,
+.b-typo pre.hljs-code-container code.hljs .hljs-title {
   color: #900;
 }
 
-.hljs-class .hljs-title,
-.hljs-type {
+.b-typo pre.hljs-code-container code.hljs .hljs-class .hljs-title,
+.b-typo pre.hljs-code-container code.hljs .hljs-type {
   color: #458;
 }
 
-.hljs-variable,
-.hljs-template-variable {
+.b-typo pre.hljs-code-container code.hljs .hljs-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-variable {
   color: #336699;
 }
 
-.hljs-bullet {
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet {
   color: #997700;
 }
 
-.hljs-meta {
+.b-typo pre.hljs-code-container code.hljs .hljs-meta {
   color: #3344bb;
 }
 
-.hljs-code,
-.hljs-number,
-.hljs-literal,
-.hljs-keyword,
-.hljs-selector-tag {
+.b-typo pre.hljs-code-container code.hljs .hljs-code,
+.b-typo pre.hljs-code-container code.hljs .hljs-number,
+.b-typo pre.hljs-code-container code.hljs .hljs-literal,
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-tag {
   color: #099;
 }
 
-.hljs-regexp {
+.b-typo pre.hljs-code-container code.hljs .hljs-regexp {
   background-color: #fff0ff;
   color: #880088;
 }
 
-.hljs-symbol {
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol {
   color: #990073;
 }
 
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class {
+.b-typo pre.hljs-code-container code.hljs .hljs-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-name,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-class {
   color: #007700;
 }

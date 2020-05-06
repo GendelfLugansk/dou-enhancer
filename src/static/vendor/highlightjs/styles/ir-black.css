@@ -2,7 +2,7 @@
   IR_Black style (c) Vasily Mikhailitchenko <vaskas@programica.ru>
 */
 
-.hljs, .b-typo pre.hljs-code-container code.hljs {
+.b-typo pre.hljs-code-container code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -10,64 +10,64 @@
   color: #f8f8f8;
 }
 
-.hljs-comment,
-.hljs-quote,
-.hljs-meta {
+.b-typo pre.hljs-code-container code.hljs .hljs-comment,
+.b-typo pre.hljs-code-container code.hljs .hljs-quote,
+.b-typo pre.hljs-code-container code.hljs .hljs-meta {
   color: #7c7c7c;
 }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-tag,
-.hljs-name {
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-name {
   color: #96cbfe;
 }
 
-.hljs-attribute,
-.hljs-selector-id {
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id {
   color: #ffffb6;
 }
 
-.hljs-string,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-addition {
+.b-typo pre.hljs-code-container code.hljs .hljs-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-attr,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-pseudo,
+.b-typo pre.hljs-code-container code.hljs .hljs-addition {
   color: #a8ff60;
 }
 
-.hljs-subst {
+.b-typo pre.hljs-code-container code.hljs .hljs-subst {
   color: #daefa3;
 }
 
-.hljs-regexp,
-.hljs-link {
+.b-typo pre.hljs-code-container code.hljs .hljs-regexp,
+.b-typo pre.hljs-code-container code.hljs .hljs-link {
   color: #e9c062;
 }
 
-.hljs-title,
-.hljs-section,
-.hljs-type,
-.hljs-doctag {
+.b-typo pre.hljs-code-container code.hljs .hljs-title,
+.b-typo pre.hljs-code-container code.hljs .hljs-section,
+.b-typo pre.hljs-code-container code.hljs .hljs-type,
+.b-typo pre.hljs-code-container code.hljs .hljs-doctag {
   color: #ffffb6;
 }
 
-.hljs-symbol,
-.hljs-bullet,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-literal {
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol,
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet,
+.b-typo pre.hljs-code-container code.hljs .hljs-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-literal {
   color: #c6c5fe;
 }
 
-.hljs-number,
-.hljs-deletion {
+.b-typo pre.hljs-code-container code.hljs .hljs-number,
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion {
   color:#ff73fd;
 }
 
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-strong {
+.b-typo pre.hljs-code-container code.hljs .hljs-strong {
   font-weight: bold;
 }

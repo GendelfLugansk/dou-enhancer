@@ -18,7 +18,7 @@ hue-6-2: #c18401
 
 */
 
-.hljs, .b-typo pre.hljs-code-container code.hljs {
+.b-typo pre.hljs-code-container code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -26,71 +26,71 @@ hue-6-2: #c18401
   background: #fafafa;
 }
 
-.hljs-comment,
-.hljs-quote {
+.b-typo pre.hljs-code-container code.hljs .hljs-comment,
+.b-typo pre.hljs-code-container code.hljs .hljs-quote {
   color: #a0a1a7;
   font-style: italic;
 }
 
-.hljs-doctag,
-.hljs-keyword,
-.hljs-formula {
+.b-typo pre.hljs-code-container code.hljs .hljs-doctag,
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-formula {
   color: #a626a4;
 }
 
-.hljs-section,
-.hljs-name,
-.hljs-selector-tag,
-.hljs-deletion,
-.hljs-subst {
+.b-typo pre.hljs-code-container code.hljs .hljs-section,
+.b-typo pre.hljs-code-container code.hljs .hljs-name,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion,
+.b-typo pre.hljs-code-container code.hljs .hljs-subst {
   color: #e45649;
 }
 
-.hljs-literal {
+.b-typo pre.hljs-code-container code.hljs .hljs-literal {
   color: #0184bb;
 }
 
-.hljs-string,
-.hljs-regexp,
-.hljs-addition,
-.hljs-attribute,
-.hljs-meta-string {
+.b-typo pre.hljs-code-container code.hljs .hljs-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-regexp,
+.b-typo pre.hljs-code-container code.hljs .hljs-addition,
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute,
+.b-typo pre.hljs-code-container code.hljs .hljs-meta-string {
   color: #50a14f;
 }
 
-.hljs-built_in,
-.hljs-class .hljs-title {
+.b-typo pre.hljs-code-container code.hljs .hljs-built_in,
+.b-typo pre.hljs-code-container code.hljs .hljs-class .hljs-title {
   color: #c18401;
 }
 
-.hljs-attr,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-type,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-number {
+.b-typo pre.hljs-code-container code.hljs .hljs-attr,
+.b-typo pre.hljs-code-container code.hljs .hljs-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-type,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-class,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-attr,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-pseudo,
+.b-typo pre.hljs-code-container code.hljs .hljs-number {
   color: #986801;
 }
 
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link,
-.hljs-meta,
-.hljs-selector-id,
-.hljs-title {
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol,
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet,
+.b-typo pre.hljs-code-container code.hljs .hljs-link,
+.b-typo pre.hljs-code-container code.hljs .hljs-meta,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id,
+.b-typo pre.hljs-code-container code.hljs .hljs-title {
   color: #4078f2;
 }
 
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-strong {
+.b-typo pre.hljs-code-container code.hljs .hljs-strong {
   font-weight: bold;
 }
 
-.hljs-link {
+.b-typo pre.hljs-code-container code.hljs .hljs-link {
   text-decoration: underline;
 }

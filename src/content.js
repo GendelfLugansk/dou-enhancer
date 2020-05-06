@@ -288,7 +288,7 @@ const fn = function () {
     /**
      * Highlight all code
      */
-    highlightCode();
+    highlightCode(extensionConfig);
     /**
      * Expand all threads
      */
@@ -310,7 +310,7 @@ const fn = function () {
     commentsMutationCallbacks.push(function (added, edited) {
       if (added || edited) {
         addImagePreviews(extensionConfig);
-        highlightCode();
+        highlightCode(extensionConfig);
         if (extensionConfig.expandThreads) {
           expandThreads();
         }
@@ -334,7 +334,7 @@ const fn = function () {
           }
 
           addImagePreviews(extensionConfig, true);
-          highlightCode();
+          highlightCode(extensionConfig);
           if (extensionConfig.expandThreads) {
             expandThreads();
           }

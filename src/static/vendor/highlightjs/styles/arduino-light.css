@@ -4,7 +4,7 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 
 */
 
-.hljs, .b-typo pre.hljs-code-container code.hljs {
+.b-typo pre.hljs-code-container code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -12,77 +12,77 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 }
 
 .hljs,
-.hljs-subst {
+.b-typo pre.hljs-code-container code.hljs .hljs-subst {
   color: #434f54;
 }
 
-.hljs-keyword,
-.hljs-attribute,
-.hljs-selector-tag,
-.hljs-doctag,
-.hljs-name {
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-doctag,
+.b-typo pre.hljs-code-container code.hljs .hljs-name {
   color: #00979D;
 }
 
-.hljs-built_in,
-.hljs-literal,
-.hljs-bullet,
-.hljs-code,
-.hljs-addition {
+.b-typo pre.hljs-code-container code.hljs .hljs-built_in,
+.b-typo pre.hljs-code-container code.hljs .hljs-literal,
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet,
+.b-typo pre.hljs-code-container code.hljs .hljs-code,
+.b-typo pre.hljs-code-container code.hljs .hljs-addition {
   color: #D35400;
 }
 
-.hljs-regexp,
-.hljs-symbol,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-link,
-.hljs-selector-attr,
-.hljs-selector-pseudo {
+.b-typo pre.hljs-code-container code.hljs .hljs-regexp,
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol,
+.b-typo pre.hljs-code-container code.hljs .hljs-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-link,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-attr,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-pseudo {
   color: #00979D;
 }
 
-.hljs-type,
-.hljs-string,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-quote,
-.hljs-template-tag,
-.hljs-deletion {
+.b-typo pre.hljs-code-container code.hljs .hljs-type,
+.b-typo pre.hljs-code-container code.hljs .hljs-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-class,
+.b-typo pre.hljs-code-container code.hljs .hljs-quote,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion {
   color: #005C5F;
 }
 
-.hljs-title,
-.hljs-section {
+.b-typo pre.hljs-code-container code.hljs .hljs-title,
+.b-typo pre.hljs-code-container code.hljs .hljs-section {
   color: #880000;
   font-weight: bold;
 }
 
-.hljs-comment {
+.b-typo pre.hljs-code-container code.hljs .hljs-comment {
   color: rgba(149,165,166,.8);
 }
 
-.hljs-meta-keyword {
+.b-typo pre.hljs-code-container code.hljs .hljs-meta-keyword {
   color: #728E00;
 }
 
-.hljs-meta {
+.b-typo pre.hljs-code-container code.hljs .hljs-meta {
   color: #728E00;
   color: #434f54;
 }
 
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-strong {
+.b-typo pre.hljs-code-container code.hljs .hljs-strong {
   font-weight: bold;
 }
 
-.hljs-function {
+.b-typo pre.hljs-code-container code.hljs .hljs-function {
   color: #728E00;
 }
 
-.hljs-number {
+.b-typo pre.hljs-code-container code.hljs .hljs-number {
   color: #8A7B52;
 }

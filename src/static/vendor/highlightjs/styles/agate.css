@@ -16,7 +16,7 @@
  *
  */
 
-.hljs, .b-typo pre.hljs-code-container code.hljs {
+.b-typo pre.hljs-code-container code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -24,85 +24,85 @@
   color: white;
 }
 
-.hljs-name,
-.hljs-strong {
+.b-typo pre.hljs-code-container code.hljs .hljs-name,
+.b-typo pre.hljs-code-container code.hljs .hljs-strong {
   font-weight: bold;
 }
 
-.hljs-code,
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-code,
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-tag {
+.b-typo pre.hljs-code-container code.hljs .hljs-tag {
   color: #62c8f3;
 }
 
-.hljs-variable,
-.hljs-template-variable,
-.hljs-selector-id,
-.hljs-selector-class {
+.b-typo pre.hljs-code-container code.hljs .hljs-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-class {
   color: #ade5fc;
 }
 
-.hljs-string,
-.hljs-bullet {
+.b-typo pre.hljs-code-container code.hljs .hljs-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet {
   color: #a2fca2;
 }
 
-.hljs-type,
-.hljs-title,
-.hljs-section,
-.hljs-attribute,
-.hljs-quote,
-.hljs-built_in,
-.hljs-builtin-name {
+.b-typo pre.hljs-code-container code.hljs .hljs-type,
+.b-typo pre.hljs-code-container code.hljs .hljs-title,
+.b-typo pre.hljs-code-container code.hljs .hljs-section,
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute,
+.b-typo pre.hljs-code-container code.hljs .hljs-quote,
+.b-typo pre.hljs-code-container code.hljs .hljs-built_in,
+.b-typo pre.hljs-code-container code.hljs .hljs-builtin-name {
   color: #ffa;
 }
 
-.hljs-number,
-.hljs-symbol,
-.hljs-bullet {
+.b-typo pre.hljs-code-container code.hljs .hljs-number,
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol,
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet {
   color: #d36363;
 }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal {
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-literal {
   color: #fcc28c;
 }
 
-.hljs-comment,
-.hljs-deletion,
-.hljs-code {
+.b-typo pre.hljs-code-container code.hljs .hljs-comment,
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion,
+.b-typo pre.hljs-code-container code.hljs .hljs-code {
   color: #888;
 }
 
-.hljs-regexp,
-.hljs-link {
+.b-typo pre.hljs-code-container code.hljs .hljs-regexp,
+.b-typo pre.hljs-code-container code.hljs .hljs-link {
   color: #c6b4f0;
 }
 
-.hljs-meta {
+.b-typo pre.hljs-code-container code.hljs .hljs-meta {
   color: #fc9b9b;
 }
 
-.hljs-deletion {
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion {
   background-color: #fc9b9b;
   color: #333;
 }
 
-.hljs-addition {
+.b-typo pre.hljs-code-container code.hljs .hljs-addition {
   background-color: #a2fca2;
   color: #333;
 }
 
-.hljs a {
+.b-typo pre.hljs-code-container code.hljs .hljs a {
   color: inherit;
 }
 
-.hljs a:focus,
-.hljs a:hover {
+.b-typo pre.hljs-code-container code.hljs .hljs a:focus,
+.b-typo pre.hljs-code-container code.hljs .hljs a:hover {
   color: inherit;
   text-decoration: underline;
 }

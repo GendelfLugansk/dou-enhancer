@@ -5,7 +5,7 @@ based on dark.css by Ivan Sagalaev
 
 */
 
-.hljs, .b-typo pre.hljs-code-container code.hljs {
+.b-typo pre.hljs-code-container code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -13,68 +13,68 @@ based on dark.css by Ivan Sagalaev
   color: #dcdcdc;
 }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-tag {
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-tag {
   color: #e3ceab;
 }
 
-.hljs-template-tag {
+.b-typo pre.hljs-code-container code.hljs .hljs-template-tag {
   color: #dcdcdc;
 }
 
-.hljs-number {
+.b-typo pre.hljs-code-container code.hljs .hljs-number {
   color: #8cd0d3;
 }
 
-.hljs-variable,
-.hljs-template-variable,
-.hljs-attribute {
+.b-typo pre.hljs-code-container code.hljs .hljs-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute {
   color: #efdcbc;
 }
 
-.hljs-literal {
+.b-typo pre.hljs-code-container code.hljs .hljs-literal {
   color: #efefaf;
 }
 
-.hljs-subst {
+.b-typo pre.hljs-code-container code.hljs .hljs-subst {
   color: #8f8f8f;
 }
 
-.hljs-title,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-section,
-.hljs-type {
+.b-typo pre.hljs-code-container code.hljs .hljs-title,
+.b-typo pre.hljs-code-container code.hljs .hljs-name,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-class,
+.b-typo pre.hljs-code-container code.hljs .hljs-section,
+.b-typo pre.hljs-code-container code.hljs .hljs-type {
   color: #efef8f;
 }
 
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link {
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol,
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet,
+.b-typo pre.hljs-code-container code.hljs .hljs-link {
   color: #dca3a3;
 }
 
-.hljs-deletion,
-.hljs-string,
-.hljs-built_in,
-.hljs-builtin-name {
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion,
+.b-typo pre.hljs-code-container code.hljs .hljs-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-built_in,
+.b-typo pre.hljs-code-container code.hljs .hljs-builtin-name {
   color: #cc9393;
 }
 
-.hljs-addition,
-.hljs-comment,
-.hljs-quote,
-.hljs-meta {
+.b-typo pre.hljs-code-container code.hljs .hljs-addition,
+.b-typo pre.hljs-code-container code.hljs .hljs-comment,
+.b-typo pre.hljs-code-container code.hljs .hljs-quote,
+.b-typo pre.hljs-code-container code.hljs .hljs-meta {
   color: #7f9f7f;
 }
 
 
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-strong {
+.b-typo pre.hljs-code-container code.hljs .hljs-strong {
   font-weight: bold;
 }

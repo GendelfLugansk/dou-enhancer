@@ -6,7 +6,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 
 */
 
-.hljs, .b-typo pre.hljs-code-container code.hljs {
+.b-typo pre.hljs-code-container code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -14,70 +14,70 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
   background: url(./pojoaque.jpg) repeat scroll left top #181914;
 }
 
-.hljs-comment,
-.hljs-quote {
+.b-typo pre.hljs-code-container code.hljs .hljs-comment,
+.b-typo pre.hljs-code-container code.hljs .hljs-quote {
   color: #586e75;
   font-style: italic;
 }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-addition {
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-literal,
+.b-typo pre.hljs-code-container code.hljs .hljs-addition {
   color: #b64926;
 }
 
-.hljs-number,
-.hljs-string,
-.hljs-doctag,
-.hljs-regexp {
+.b-typo pre.hljs-code-container code.hljs .hljs-number,
+.b-typo pre.hljs-code-container code.hljs .hljs-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-doctag,
+.b-typo pre.hljs-code-container code.hljs .hljs-regexp {
   color: #468966;
 }
 
-.hljs-title,
-.hljs-section,
-.hljs-built_in,
-.hljs-name {
+.b-typo pre.hljs-code-container code.hljs .hljs-title,
+.b-typo pre.hljs-code-container code.hljs .hljs-section,
+.b-typo pre.hljs-code-container code.hljs .hljs-built_in,
+.b-typo pre.hljs-code-container code.hljs .hljs-name {
   color: #ffb03b;
 }
 
-.hljs-variable,
-.hljs-template-variable,
-.hljs-class .hljs-title,
-.hljs-type,
-.hljs-tag {
+.b-typo pre.hljs-code-container code.hljs .hljs-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-class .hljs-title,
+.b-typo pre.hljs-code-container code.hljs .hljs-type,
+.b-typo pre.hljs-code-container code.hljs .hljs-tag {
   color: #b58900;
 }
 
-.hljs-attribute {
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute {
   color: #b89859;
 }
 
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link,
-.hljs-subst,
-.hljs-meta {
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol,
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet,
+.b-typo pre.hljs-code-container code.hljs .hljs-link,
+.b-typo pre.hljs-code-container code.hljs .hljs-subst,
+.b-typo pre.hljs-code-container code.hljs .hljs-meta {
   color: #cb4b16;
 }
 
-.hljs-deletion {
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion {
   color: #dc322f;
 }
 
-.hljs-selector-id,
-.hljs-selector-class {
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-class {
   color: #d3a60c;
 }
 
-.hljs-formula {
+.b-typo pre.hljs-code-container code.hljs .hljs-formula {
   background: #073642;
 }
 
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-strong {
+.b-typo pre.hljs-code-container code.hljs .hljs-strong {
   font-weight: bold;
 }

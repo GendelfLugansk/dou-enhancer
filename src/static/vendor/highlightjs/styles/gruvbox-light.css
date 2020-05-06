@@ -4,7 +4,7 @@ Gruvbox style (light) (c) Pavel Pertsev (original style at https://github.com/mo
 
 */
 
-.hljs, .b-typo pre.hljs-code-container code.hljs {
+.b-typo pre.hljs-code-container code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -12,97 +12,97 @@ Gruvbox style (light) (c) Pavel Pertsev (original style at https://github.com/mo
 }
 
 .hljs,
-.hljs-subst {
+.b-typo pre.hljs-code-container code.hljs .hljs-subst {
   color: #3c3836;
 }
 
 /* Gruvbox Red */
-.hljs-deletion,
-.hljs-formula,
-.hljs-keyword,
-.hljs-link,
-.hljs-selector-tag {
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion,
+.b-typo pre.hljs-code-container code.hljs .hljs-formula,
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-link,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-tag {
   color: #9d0006;
 }
 
 /* Gruvbox Blue */
-.hljs-built_in,
-.hljs-emphasis,
-.hljs-name,
-.hljs-quote,
-.hljs-strong,
-.hljs-title,
-.hljs-variable {
+.b-typo pre.hljs-code-container code.hljs .hljs-built_in,
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis,
+.b-typo pre.hljs-code-container code.hljs .hljs-name,
+.b-typo pre.hljs-code-container code.hljs .hljs-quote,
+.b-typo pre.hljs-code-container code.hljs .hljs-strong,
+.b-typo pre.hljs-code-container code.hljs .hljs-title,
+.b-typo pre.hljs-code-container code.hljs .hljs-variable {
   color: #076678;
 }
 
 /* Gruvbox Yellow */
-.hljs-attr,
-.hljs-params,
-.hljs-template-tag,
-.hljs-type {
+.b-typo pre.hljs-code-container code.hljs .hljs-attr,
+.b-typo pre.hljs-code-container code.hljs .hljs-params,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-type {
   color: #b57614;
 }
 
 /* Gruvbox Purple */
-.hljs-builtin-name,
-.hljs-doctag,
-.hljs-literal,
-.hljs-number {
+.b-typo pre.hljs-code-container code.hljs .hljs-builtin-name,
+.b-typo pre.hljs-code-container code.hljs .hljs-doctag,
+.b-typo pre.hljs-code-container code.hljs .hljs-literal,
+.b-typo pre.hljs-code-container code.hljs .hljs-number {
   color: #8f3f71;
 }
 
 /* Gruvbox Orange */
-.hljs-code,
-.hljs-meta,
-.hljs-regexp,
-.hljs-selector-id,
-.hljs-template-variable {
+.b-typo pre.hljs-code-container code.hljs .hljs-code,
+.b-typo pre.hljs-code-container code.hljs .hljs-meta,
+.b-typo pre.hljs-code-container code.hljs .hljs-regexp,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-variable {
   color: #af3a03;
 }
 
 /* Gruvbox Green */
-.hljs-addition,
-.hljs-meta-string,
-.hljs-section,
-.hljs-selector-attr,
-.hljs-selector-class,
-.hljs-string,
-.hljs-symbol {
+.b-typo pre.hljs-code-container code.hljs .hljs-addition,
+.b-typo pre.hljs-code-container code.hljs .hljs-meta-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-section,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-attr,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-class,
+.b-typo pre.hljs-code-container code.hljs .hljs-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol {
   color: #79740e;
 }
 
 /* Gruvbox Aqua */
-.hljs-attribute,
-.hljs-bullet,
-.hljs-class,
-.hljs-function,
-.hljs-function .hljs-keyword,
-.hljs-meta-keyword,
-.hljs-selector-pseudo,
-.hljs-tag {
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute,
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet,
+.b-typo pre.hljs-code-container code.hljs .hljs-class,
+.b-typo pre.hljs-code-container code.hljs .hljs-function,
+.b-typo pre.hljs-code-container code.hljs .hljs-function .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-meta-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-pseudo,
+.b-typo pre.hljs-code-container code.hljs .hljs-tag {
   color: #427b58;
 }
 
 /* Gruvbox Gray */
-.hljs-comment {
+.b-typo pre.hljs-code-container code.hljs .hljs-comment {
   color: #928374;
 }
 
 /* Gruvbox Purple */
-.hljs-link_label,
-.hljs-literal,
-.hljs-number {
+.b-typo pre.hljs-code-container code.hljs .hljs-link_label,
+.b-typo pre.hljs-code-container code.hljs .hljs-literal,
+.b-typo pre.hljs-code-container code.hljs .hljs-number {
   color: #8f3f71;
 }
 
-.hljs-comment,
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-comment,
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-section,
-.hljs-strong,
-.hljs-tag {
+.b-typo pre.hljs-code-container code.hljs .hljs-section,
+.b-typo pre.hljs-code-container code.hljs .hljs-strong,
+.b-typo pre.hljs-code-container code.hljs .hljs-tag {
   font-weight: bold;
 }

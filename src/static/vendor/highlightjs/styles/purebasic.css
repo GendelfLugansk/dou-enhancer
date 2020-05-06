@@ -7,7 +7,7 @@ by Tristano Ajmone <tajmone@gmail.com>
 Public Domain
 
 NOTE_1:	PureBASIC code syntax highlighting only applies the following classes:
-			.hljs-comment
+			.b-typo pre.hljs-code-container code.hljs .hljs-comment
 			.hljs-function
 			.hljs-keywords
 			.hljs-string
@@ -21,7 +21,7 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 			http://chir.ag/projects/name-that-color
 */
 
-.hljs, .b-typo pre.hljs-code-container code.hljs { /* Common set of rules required by highlight.js (don'r remove!) */
+.b-typo pre.hljs-code-container code.hljs { /* Common set of rules required by highlight.js (don'r remove!) */
 	display: block;
 	overflow-x: auto;
 	padding: 0.5em;
@@ -32,65 +32,65 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 }
 
 .hljs, /* --- used for PureBASIC base color --- */
-.hljs-type,  /* --- used for PureBASIC Procedures return type --- */
-.hljs-function, /* --- used for wrapping PureBASIC Procedures definitions --- */
-.hljs-name,
-.hljs-number,
-.hljs-attr,
-.hljs-params,
-.hljs-subst {
+.b-typo pre.hljs-code-container code.hljs .hljs-type,  /* --- used for PureBASIC Procedures return type --- */
+.b-typo pre.hljs-code-container code.hljs .hljs-function, /* --- used for wrapping PureBASIC Procedures definitions --- */
+.b-typo pre.hljs-code-container code.hljs .hljs-name,
+.b-typo pre.hljs-code-container code.hljs .hljs-number,
+.b-typo pre.hljs-code-container code.hljs .hljs-attr,
+.b-typo pre.hljs-code-container code.hljs .hljs-params,
+.b-typo pre.hljs-code-container code.hljs .hljs-subst {
 	color: #000000; /* Black */
 }
 
-.hljs-comment, /* --- used for PureBASIC Comments --- */
-.hljs-regexp,
-.hljs-section,
-.hljs-selector-pseudo,
-.hljs-addition {
+.b-typo pre.hljs-code-container code.hljs .hljs-comment, /* --- used for PureBASIC Comments --- */
+.b-typo pre.hljs-code-container code.hljs .hljs-regexp,
+.b-typo pre.hljs-code-container code.hljs .hljs-section,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-pseudo,
+.b-typo pre.hljs-code-container code.hljs .hljs-addition {
 	color: #00AAAA; /* Persian Green (approx.) */
 }
 
-.hljs-title, /* --- used for PureBASIC Procedures Names --- */
-.hljs-tag,
-.hljs-variable,
-.hljs-code  {
+.b-typo pre.hljs-code-container code.hljs .hljs-title, /* --- used for PureBASIC Procedures Names --- */
+.b-typo pre.hljs-code-container code.hljs .hljs-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-code  {
 	color: #006666; /* Blue Stone (approx.) */
 }
 
-.hljs-keyword, /* --- used for PureBASIC Keywords --- */
-.hljs-class,
-.hljs-meta-keyword,
-.hljs-selector-class,
-.hljs-built_in,
-.hljs-builtin-name {
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword, /* --- used for PureBASIC Keywords --- */
+.b-typo pre.hljs-code-container code.hljs .hljs-class,
+.b-typo pre.hljs-code-container code.hljs .hljs-meta-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-class,
+.b-typo pre.hljs-code-container code.hljs .hljs-built_in,
+.b-typo pre.hljs-code-container code.hljs .hljs-builtin-name {
 	color: #006666; /* Blue Stone (approx.) */
 	font-weight: bold;
 }
 
-.hljs-string, /* --- used for PureBASIC Strings --- */
-.hljs-selector-attr {
+.b-typo pre.hljs-code-container code.hljs .hljs-string, /* --- used for PureBASIC Strings --- */
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-attr {
 	color: #0080FF; /* Azure Radiance (approx.) */
 }
 
-.hljs-symbol, /* --- used for PureBASIC Constants --- */
-.hljs-link,
-.hljs-deletion,
-.hljs-attribute {
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol, /* --- used for PureBASIC Constants --- */
+.b-typo pre.hljs-code-container code.hljs .hljs-link,
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion,
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute {
 	color: #924B72; /* Cannon Pink (approx.) */
 }
 
-.hljs-meta,
-.hljs-literal,
-.hljs-selector-id {
+.b-typo pre.hljs-code-container code.hljs .hljs-meta,
+.b-typo pre.hljs-code-container code.hljs .hljs-literal,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id {
 	color: #924B72; /* Cannon Pink (approx.) */
 	font-weight: bold;
 }
 
-.hljs-strong,
-.hljs-name {
+.b-typo pre.hljs-code-container code.hljs .hljs-strong,
+.b-typo pre.hljs-code-container code.hljs .hljs-name {
 	font-weight: bold;
 }
 
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
 	font-style: italic;
 }

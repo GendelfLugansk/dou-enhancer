@@ -5,7 +5,7 @@ Qt Creator dark color scheme
 */
 
 
-.hljs, .b-typo pre.hljs-code-container code.hljs {
+.b-typo pre.hljs-code-container code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -13,71 +13,71 @@ Qt Creator dark color scheme
 }
 
 .hljs,
-.hljs-subst,
-.hljs-tag,
-.hljs-title {
+.b-typo pre.hljs-code-container code.hljs .hljs-subst,
+.b-typo pre.hljs-code-container code.hljs .hljs-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-title {
   color: #aaaaaa;
 }
 
-.hljs-strong,
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-strong,
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
   color: #a8a8a2;
 }
 
-.hljs-bullet,
-.hljs-quote,
-.hljs-number,
-.hljs-regexp,
-.hljs-literal {
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet,
+.b-typo pre.hljs-code-container code.hljs .hljs-quote,
+.b-typo pre.hljs-code-container code.hljs .hljs-number,
+.b-typo pre.hljs-code-container code.hljs .hljs-regexp,
+.b-typo pre.hljs-code-container code.hljs .hljs-literal {
   color: #ff55ff;
 }
 
-.hljs-code
+.b-typo pre.hljs-code-container code.hljs .hljs-code
 .hljs-selector-class {
   color: #aaaaff;
 }
 
-.hljs-emphasis,
-.hljs-stronge,
-.hljs-type {
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis,
+.b-typo pre.hljs-code-container code.hljs .hljs-stronge,
+.b-typo pre.hljs-code-container code.hljs .hljs-type {
   font-style: italic;
 }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-function,
-.hljs-section,
-.hljs-symbol,
-.hljs-name {
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-function,
+.b-typo pre.hljs-code-container code.hljs .hljs-section,
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol,
+.b-typo pre.hljs-code-container code.hljs .hljs-name {
   color: #ffff55;
 }
 
-.hljs-attribute {
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute {
   color: #ff5555;
 }
 
-.hljs-variable,
-.hljs-params,
-.hljs-class .hljs-title {
+.b-typo pre.hljs-code-container code.hljs .hljs-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-params,
+.b-typo pre.hljs-code-container code.hljs .hljs-class .hljs-title {
   color: #8888ff;
 }
 
-.hljs-string,
-.hljs-selector-id,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-type,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-template-tag,
-.hljs-template-variable,
-.hljs-addition,
-.hljs-link {
+.b-typo pre.hljs-code-container code.hljs .hljs-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-attr,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-pseudo,
+.b-typo pre.hljs-code-container code.hljs .hljs-type,
+.b-typo pre.hljs-code-container code.hljs .hljs-built_in,
+.b-typo pre.hljs-code-container code.hljs .hljs-builtin-name,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-addition,
+.b-typo pre.hljs-code-container code.hljs .hljs-link {
   color: #ff55ff;
 }
 
-.hljs-comment,
-.hljs-meta,
-.hljs-deletion {
+.b-typo pre.hljs-code-container code.hljs .hljs-comment,
+.b-typo pre.hljs-code-container code.hljs .hljs-meta,
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion {
   color: #55ffff;
 }

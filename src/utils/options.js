@@ -1,5 +1,6 @@
 /* global chrome */
 import mediaSizes from "../config/media-sizes";
+import hljsThemes from "../config/hljs-themes"
 import Alerts from './alerts';
 import debounce from "./debounce";
 import defaultConfig from "../config/extension-defaults";
@@ -115,6 +116,21 @@ Options.prototype.setup = function (config) {
   twemojiCheckbox.checked = config.twemoji;
   twemojiCheckbox.onchange = function () {
     config.twemoji = this.checked;
+    that.saveChanges(config);
+  };
+
+  const hljsThemeSelect = document.getElementById("hljsTheme");
+  hljsThemes.forEach(theme => {
+    let option = document.createElement("option");
+    if (config.hljsTheme === theme) {
+      option.setAttribute("selected", "selected");
+    }
+    option.value = theme;
+    option.textContent = theme;
+    hljsThemeSelect.appendChild(option);
+  });
+  hljsThemeSelect.onchange = function (e) {
+    config.hljsTheme = e.target.value;
     that.saveChanges(config);
   };
 

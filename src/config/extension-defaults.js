@@ -11,4 +11,5 @@ export default {
     {title: 'Не читал, осуждаю', description: 'Не читал, осуждаю', content: 'Не читал, но осуждаю'},
     {title: 'Читал, осуждаю', description: 'Читал, осуждаю', content: 'Читал, но всё равно осуждаю'},
   ],
+  hljsTheme: 'agate'
 };

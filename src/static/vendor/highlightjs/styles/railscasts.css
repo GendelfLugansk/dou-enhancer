@@ -4,7 +4,7 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 
 */
 
-.hljs, .b-typo pre.hljs-code-container code.hljs {
+.b-typo pre.hljs-code-container code.hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -12,95 +12,95 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
   color: #e6e1dc;
 }
 
-.hljs-comment,
-.hljs-quote {
+.b-typo pre.hljs-code-container code.hljs .hljs-comment,
+.b-typo pre.hljs-code-container code.hljs .hljs-quote {
   color: #bc9458;
   font-style: italic;
 }
 
-.hljs-keyword,
-.hljs-selector-tag {
+.b-typo pre.hljs-code-container code.hljs .hljs-keyword,
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-tag {
   color: #c26230;
 }
 
-.hljs-string,
-.hljs-number,
-.hljs-regexp,
-.hljs-variable,
-.hljs-template-variable {
+.b-typo pre.hljs-code-container code.hljs .hljs-string,
+.b-typo pre.hljs-code-container code.hljs .hljs-number,
+.b-typo pre.hljs-code-container code.hljs .hljs-regexp,
+.b-typo pre.hljs-code-container code.hljs .hljs-variable,
+.b-typo pre.hljs-code-container code.hljs .hljs-template-variable {
   color: #a5c261;
 }
 
-.hljs-subst {
+.b-typo pre.hljs-code-container code.hljs .hljs-subst {
   color: #519f50;
 }
 
-.hljs-tag,
-.hljs-name {
+.b-typo pre.hljs-code-container code.hljs .hljs-tag,
+.b-typo pre.hljs-code-container code.hljs .hljs-name {
   color: #e8bf6a;
 }
 
-.hljs-type {
+.b-typo pre.hljs-code-container code.hljs .hljs-type {
   color: #da4939;
 }
 
 
-.hljs-symbol,
-.hljs-bullet,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-attr,
-.hljs-link {
+.b-typo pre.hljs-code-container code.hljs .hljs-symbol,
+.b-typo pre.hljs-code-container code.hljs .hljs-bullet,
+.b-typo pre.hljs-code-container code.hljs .hljs-built_in,
+.b-typo pre.hljs-code-container code.hljs .hljs-builtin-name,
+.b-typo pre.hljs-code-container code.hljs .hljs-attr,
+.b-typo pre.hljs-code-container code.hljs .hljs-link {
   color: #6d9cbe;
 }
 
-.hljs-params {
+.b-typo pre.hljs-code-container code.hljs .hljs-params {
   color: #d0d0ff;
 }
 
-.hljs-attribute {
+.b-typo pre.hljs-code-container code.hljs .hljs-attribute {
   color: #cda869;
 }
 
-.hljs-meta {
+.b-typo pre.hljs-code-container code.hljs .hljs-meta {
   color: #9b859d;
 }
 
-.hljs-title,
-.hljs-section {
+.b-typo pre.hljs-code-container code.hljs .hljs-title,
+.b-typo pre.hljs-code-container code.hljs .hljs-section {
   color: #ffc66d;
 }
 
-.hljs-addition {
+.b-typo pre.hljs-code-container code.hljs .hljs-addition {
   background-color: #144212;
   color: #e6e1dc;
   display: inline-block;
   width: 100%;
 }
 
-.hljs-deletion {
+.b-typo pre.hljs-code-container code.hljs .hljs-deletion {
   background-color: #600;
   color: #e6e1dc;
   display: inline-block;
   width: 100%;
 }
 
-.hljs-selector-class {
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-class {
   color: #9b703f;
 }
 
-.hljs-selector-id {
+.b-typo pre.hljs-code-container code.hljs .hljs-selector-id {
   color: #8b98ab;
 }
 
-.hljs-emphasis {
+.b-typo pre.hljs-code-container code.hljs .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-strong {
+.b-typo pre.hljs-code-container code.hljs .hljs-strong {
   font-weight: bold;
 }
 
-.hljs-link {
+.b-typo pre.hljs-code-container code.hljs .hljs-link {
   text-decoration: underline;
 }
