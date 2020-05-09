@@ -36,6 +36,6 @@
     "tinymce-emoji": "GendelfLugansk/tinymce-emoji#twemoji",
     "twemoji": "2.5.1",
     "vinyl-named": "1.1.0",
-    "webpack-stream": "4.0.3"
+    "webpack-stream": "5.2.1"
   }
 }

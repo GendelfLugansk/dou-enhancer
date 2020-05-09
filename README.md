@@ -21,7 +21,7 @@ You can install it from [chrome store](https://chrome.google.com/webstore/detail
 
 ## Development
 
-1. You will need installed npm (install node.js for this) and gulp (`npm install -g gulp`)
+1. You will need npm (install node.js for this) and gulp (`npm install -g gulp`) installed
 2. Clone this repo and run `npm i` to install dependencies
 3. Run `gulp` to build extension and watch for changes (to auto-rebuild) or `gulp build` to build
 without watching. Other available commands:

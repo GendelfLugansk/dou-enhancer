@@ -13,6 +13,16 @@ const
   webpack = require('webpack-stream'),
   named = require('vinyl-named');
 
+process.env.NODE_ENV = 'development';
+
+gulp.task('mode-prod', () => {
+  process.env.NODE_ENV = 'production';
+})
+
+gulp.task('mode-dev', () => {
+  process.env.NODE_ENV = 'development';
+})
+
 /**
  * Check js with eslint
  */
@@ -21,8 +31,8 @@ gulp.task('eslint', () =>
   gulp.src(eslintSrc)
     .pipe(eslint())
     .pipe(eslint.formatEach('compact', process.stderr))
+    .pipe(eslint.failAfterError())
 );
-gulp.task('watch-eslint', () => gulp.watch(eslintSrc, ['eslint']));
 
 /**
  * Clean 'dist' directory
@@ -62,7 +72,7 @@ gulp.task('scss', () =>
 gulp.task('watch-scss', () => gulp.watch(scssSrc, ['scss']));
 
 /**
- * Build js files using babel. Webpack is used together with vinyl-named to do imports but keep result each entry point
+ * Build js files using babel. Webpack is used together with vinyl-named to enable imports but keep result each entry point
  * in separated files (content script, background script)
  */
 const jsSrc = ['src/content.js', 'src/background.js', 'src/popup.js', 'src/options.js', 'src/profiling.js'];
@@ -70,7 +80,7 @@ const depsSrc = ['src/utils/**/*.js', 'src/config/**/*.js', 'node_modules/**/*.j
 gulp.task('js', () =>
   gulp.src(jsSrc)
     .pipe(named())
-    .pipe(webpack())
+    .pipe(webpack({mode: process.env.NODE_ENV}))
     .pipe(babel({
       "presets": [
         ["@babel/preset-env", {
@@ -100,8 +110,9 @@ gulp.task('zip', () =>
  * Public tasks to use in command line
  */
 
-gulp.task('build', gulpSequence('eslint', 'cleanup', 'vendor', 'static', 'scss', 'js'));
-gulp.task('package', gulpSequence('build', 'zip'));
-gulp.task('watch', gulpSequence(['watch-eslint', 'watch-vendor', 'watch-static', 'watch-scss', 'watch-js']));
-gulp.task('default', gulpSequence('build', 'watch'));
+gulp.task('build', gulpSequence('cleanup', 'vendor', 'static', 'scss', 'js'));
+gulp.task('watch', gulpSequence(['watch-vendor', 'watch-static', 'watch-scss', 'watch-js']));
+
+gulp.task('package', gulpSequence('mode-prod', 'eslint', 'build', 'zip'));
+gulp.task('default', gulpSequence('mode-dev', 'build', 'watch'));
 
