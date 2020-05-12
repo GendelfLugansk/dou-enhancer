@@ -15,7 +15,7 @@ export default function (extensionConfig) {
     },
     menubar: false,
     toolbar1: 'code | undo redo | cut copy paste pastetext | template | searchreplace | styleselect',
-    toolbar2: 'bold italic strikethrough subscript superscript removeformat | link unlink | blockquote codesample | bullist numlist | tinymceEmoji',
+    toolbar2: 'bold italic underline strikethrough subscript superscript removeformat | link unlink | blockquote codesample | bullist numlist | tinymceEmoji',
     plugins: 'lists code codesample paste autolink searchreplace template link autoresize tinymceEmoji',
     style_formats: [
       {
@@ -23,6 +23,7 @@ export default function (extensionConfig) {
         items: [
           {title: 'Bold', icon: 'bold', format: 'bold'},
           {title: 'Italic', icon: 'italic', format: 'italic'},
+          {title: 'Underline', icon: 'underline', format: 'underline'},
           {title: 'Strikethrough', icon: 'strikethrough', format: 'strikethrough'},
           {title: 'Subscript', icon: 'subscript', format: 'subscript'},
           {title: 'Superscript', icon: 'superscript', format: 'superscript'},
