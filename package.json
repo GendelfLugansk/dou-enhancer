@@ -31,7 +31,7 @@
     "gulp-sequence": "1.0.0",
     "gulp-zip": "4.2.0",
     "sanitize-html": "1.20.1",
-    "striptags": "3.1.1",
+    "striptags": "3.2.0",
     "tinymce": "4.9.10",
     "tinymce-emoji": "GendelfLugansk/tinymce-emoji#twemoji",
     "twemoji": "2.5.1",
